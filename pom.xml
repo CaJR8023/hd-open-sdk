@@ -16,7 +16,7 @@
         <module>hd-java-sdk-standard-openapi</module>
     </modules>
 
-    <name>FAISCO HD Open API SDK</name>
+    <name>hd-open-sdk</name>
     <inceptionYear>2021</inceptionYear>
     <licenses>
         <license>
