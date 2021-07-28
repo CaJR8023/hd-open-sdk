@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.fkw.hdopen</groupId>
+    <artifactId>hd-open-sdk</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+    <description>FAISCO HD Open API SDK for Java</description>
+
+    <modules>
+        <module>hd-java-sdk-core</module>
+        <module>hd-java-sdk-platform-openapi</module>
+        <module>hd-java-sdk-standard-openapi</module>
+    </modules>
+
+    <properties>
+        <gson.version>2.8.6</gson.version>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <hd-java-sdk-core.version>1.0.0</hd-java-sdk-core.version>
+        <java.version>1.8</java.version>
+        <junit.version>4.13</junit.version>
+        <okhttp.version>4.0.0</okhttp.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--okhttp依赖-->
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${okhttp.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${gson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fkw.hdopen</groupId>
+                <artifactId>hd-java-sdk-core</artifactId>
+                <version>${hd-java-sdk-core.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+</project>
