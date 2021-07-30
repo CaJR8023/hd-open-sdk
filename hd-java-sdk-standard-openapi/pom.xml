@@ -9,7 +9,6 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.github.CaJR8023</groupId>
   <artifactId>hd-java-sdk-standard-openapi</artifactId>
   <version>1.0.0</version>
 
