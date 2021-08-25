@@ -12,8 +12,8 @@ import java.util.concurrent.TimeUnit;
  * @date 2021/7/26 10:42
  */
 public class ClientConfiguration {
-    public static final String DEFAULT_CLIENT_AUTH_CNAME = "127.0.0.1:51940";
-    public static final String DEFAULT_RESOURCE_CNAME = "127.0.0.1:51941";
+    public static final String DEFAULT_CLIENT_AUTH_CNAME = "openauth-hd.fkw.com";
+    public static final String DEFAULT_RESOURCE_CNAME = "open-hd.fkw.com";
     public static final String DEFAULT_AUTH_SCOPE = "all";
     public static final TimeUnit DEFAULT_TIME_UNIT = TimeUnit.MILLISECONDS;
     public static final int DEFAULT_MAX_RETRIES = 3;
