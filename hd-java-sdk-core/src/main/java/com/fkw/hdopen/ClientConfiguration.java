@@ -107,7 +107,7 @@ public class ClientConfiguration {
     }
 
     public String getHdResourceDomain() {
-        return this.protocol.toString() + "://" + hdResourceCname + ResourceUri.PREFIX_URI.getUri();
+        return this.protocol.toString() + "://" + hdResourceCname + ResourceUri.BASE_CONTEXT_PREFIX_URI.getUri();
     }
 
     public void setHdResourceCname(String hdResourceCname) {

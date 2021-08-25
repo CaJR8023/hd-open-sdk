@@ -1,6 +1,6 @@
 package com.fkw.hdopen.comm;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * @author CAJR
@@ -9,12 +9,12 @@ import com.google.gson.annotations.SerializedName;
  */
 public class TokenContext {
 
-    @SerializedName("access_token")
+    @JsonProperty("access_token")
     private String accessToken;
-    @SerializedName("token_type")
+    @JsonProperty("token_type")
     private String type;
     private String scope;
-    @SerializedName("expires_in")
+    @JsonProperty("expires_in")
     private long tokenExpireTime;
 
     public String getAccessToken() {
@@ -42,7 +42,7 @@ public class TokenContext {
     }
 
     public long getTokenExpireTime() {
-        return System.currentTimeMillis()+this.tokenExpireTime;
+        return System.currentTimeMillis() + this.tokenExpireTime;
     }
 
     public void setTokenExpireTime(long tokenExpireTime) {

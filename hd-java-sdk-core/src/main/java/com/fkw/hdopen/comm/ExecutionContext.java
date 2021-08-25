@@ -1,6 +1,5 @@
 package com.fkw.hdopen.comm;
 
-import com.google.gson.Gson;
 import com.fkw.hdopen.ClientConfiguration;
 import com.fkw.hdopen.auth.Credentials;
 import com.fkw.hdopen.exception.InvalidCredentialsException;
@@ -12,7 +11,7 @@ import java.util.Objects;
 
 /**
  * @author CAJR
- * @Description 请求执行上下文,存储token
+ * @Description 请求执行上下文, 存储token
  * @date 2021/7/26 17:33
  */
 public class ExecutionContext {
@@ -24,10 +23,10 @@ public class ExecutionContext {
     }
 
     public void init(ClientConfiguration configuration, OkHttpClient client) {
-        if (context == null){
+        if (context == null) {
             initContext(configuration, client);
         } else {
-            if (context.getTokenExpireTime() <= System.currentTimeMillis()){
+            if (context.getTokenExpireTime() <= System.currentTimeMillis()) {
                 initContext(configuration, client);
             }
         }
@@ -37,14 +36,14 @@ public class ExecutionContext {
         Request request = getCredentialsRequest(configuration);
         try {
             Response response = client.newCall(request).execute();
-            ExecutionContext.context = new Gson().fromJson(Objects.requireNonNull(response.body()).string(), TokenContext.class);
+            ExecutionContext.context = JsonUtils.toBean(Objects.requireNonNull(response.body()).string(), TokenContext.class);
         } catch (IOException e) {
             e.printStackTrace();
             throw new InvalidCredentialsException("Init oauth token fail");
         }
     }
 
-    public Request getCredentialsRequest(ClientConfiguration configuration){
+    public Request getCredentialsRequest(ClientConfiguration configuration) {
         String authUri = configuration.getProtocol().toString() + "://" + configuration.getClientAuthCname() + "/oauth/token";
         RequestBody body = new FormBody.Builder()
                 .add(Oauth2Param.GRANT_TYPE.toString(), Oauth2Param.CLIENT_CREDENTIALS.toString())

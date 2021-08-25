@@ -1,9 +1,10 @@
 package com.fkw.hdopen;
 
-import com.google.gson.Gson;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fkw.hdopen.auth.CredentialsProvider;
 import com.fkw.hdopen.client.ServiceClient;
 import com.fkw.hdopen.comm.ExecutionContext;
+import com.fkw.hdopen.comm.JsonUtils;
 import com.fkw.hdopen.exception.OperationException;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -30,16 +31,16 @@ public abstract class Operation {
     /**
      *  主操作方法
      * @param request 请求
-     * @param tClass 返回泛型
+     * @param type 返回泛型
      * @return T 泛型
      * @author CAJR
      * @date 2021/7/27
      */
-    protected <T> T doOperation(Request request, Class<T> tClass) {
+    protected <T> T doOperation(Request request, TypeReference<T> type) {
         ExecutionContext context = createDefaultContext();
         Response response = send(context, request);
         try {
-            return new Gson().fromJson(Objects.requireNonNull(response.body()).string(), tClass);
+            return JsonUtils.nativeRead(Objects.requireNonNull(response.body()).string(), type);
         } catch (IOException e) {
             throw new OperationException("Operation format Json error");
         }

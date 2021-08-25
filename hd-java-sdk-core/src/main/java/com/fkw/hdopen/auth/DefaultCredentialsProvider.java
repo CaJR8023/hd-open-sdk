@@ -7,7 +7,7 @@ import com.fkw.hdopen.exception.InvalidCredentialsException;
  * @Description 默认客户端凭证提供者
  * @date 2021/7/26 11:53
  */
-public class DefaultCredentialsProvider implements CredentialsProvider{
+public class DefaultCredentialsProvider implements CredentialsProvider {
 
     private volatile Credentials credentials;
 
@@ -26,7 +26,7 @@ public class DefaultCredentialsProvider implements CredentialsProvider{
 
     @Override
     public synchronized void setCredentials(Credentials credentials) {
-        if (credentials == null ) {
+        if (credentials == null) {
             throw new InvalidCredentialsException("Credentials should not be null.");
         } else {
             checkCredentials(credentials.getClientId(), credentials.getClientSecret());
@@ -36,15 +36,16 @@ public class DefaultCredentialsProvider implements CredentialsProvider{
 
     @Override
     public Credentials getCredentials() {
-        if (this.credentials == null ) {
+        if (this.credentials == null) {
             throw new InvalidCredentialsException("Invalid credentials");
         }
         return this.credentials;
     }
 
     /**
-     *  检查凭证是否正确
-     * @param clientId 客户端id
+     * 检查凭证是否正确
+     *
+     * @param clientId     客户端id
      * @param clientSecret 客户端secret
      * @author CAJR
      * @date 2021/7/26

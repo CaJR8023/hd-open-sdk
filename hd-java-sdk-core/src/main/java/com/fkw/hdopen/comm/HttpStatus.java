@@ -6,7 +6,9 @@ package com.fkw.hdopen.comm;
  * @date 2021/7/27 14:18
  */
 public enum HttpStatus {
-    /** http status */
+    /**
+     * http status
+     */
     CONTINUE(100, "Continue"),
     SWITCHING_PROTOCOLS(101, "Switching Protocols"),
     PROCESSING(102, "Processing"),
@@ -24,12 +26,16 @@ public enum HttpStatus {
     MULTIPLE_CHOICES(300, "Multiple Choices"),
     MOVED_PERMANENTLY(301, "Moved Permanently"),
     FOUND(302, "Found"),
-    /** @deprecated */
+    /**
+     * @deprecated
+     */
     @Deprecated
     MOVED_TEMPORARILY(302, "Moved Temporarily"),
     SEE_OTHER(303, "See Other"),
     NOT_MODIFIED(304, "Not Modified"),
-    /** @deprecated */
+    /**
+     * @deprecated
+     */
     @Deprecated
     USE_PROXY(305, "Use Proxy"),
     TEMPORARY_REDIRECT(307, "Temporary Redirect"),
@@ -48,24 +54,34 @@ public enum HttpStatus {
     LENGTH_REQUIRED(411, "Length Required"),
     PRECONDITION_FAILED(412, "Precondition Failed"),
     PAYLOAD_TOO_LARGE(413, "Payload Too Large"),
-    /** @deprecated */
+    /**
+     * @deprecated
+     */
     @Deprecated
     REQUEST_ENTITY_TOO_LARGE(413, "Request Entity Too Large"),
     URI_TOO_LONG(414, "URI Too Long"),
-    /** @deprecated */
+    /**
+     * @deprecated
+     */
     @Deprecated
     REQUEST_URI_TOO_LONG(414, "Request-URI Too Long"),
     UNSUPPORTED_MEDIA_TYPE(415, "Unsupported Media Type"),
     REQUESTED_RANGE_NOT_SATISFIABLE(416, "Requested range not satisfiable"),
     EXPECTATION_FAILED(417, "Expectation Failed"),
     I_AM_A_TEAPOT(418, "I'm a teapot"),
-    /** @deprecated */
+    /**
+     * @deprecated
+     */
     @Deprecated
     INSUFFICIENT_SPACE_ON_RESOURCE(419, "Insufficient Space On Resource"),
-    /** @deprecated */
+    /**
+     * @deprecated
+     */
     @Deprecated
     METHOD_FAILURE(420, "Method Failure"),
-    /** @deprecated */
+    /**
+     * @deprecated
+     */
     @Deprecated
     DESTINATION_LOCKED(421, "Destination Locked"),
     UNPROCESSABLE_ENTITY(422, "Unprocessable Entity"),

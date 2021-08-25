@@ -9,7 +9,7 @@ import com.fkw.hdopen.auth.DefaultCredentialsProvider;
  * @Description 合作方客户端生成器
  * @date 2021/7/26 10:33
  */
-public class HdPartnerClientBuilder implements ClientBuilder{
+public class HdPartnerClientBuilder implements ClientBuilder {
     public HdPartnerClientBuilder() {
     }
 

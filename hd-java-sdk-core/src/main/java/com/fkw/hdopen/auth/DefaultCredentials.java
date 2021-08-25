@@ -7,7 +7,7 @@ import com.fkw.hdopen.exception.InvalidCredentialsException;
  * @Description 默认客户端凭证
  * @date 2021/7/26 11:53
  */
-public class DefaultCredentials implements Credentials{
+public class DefaultCredentials implements Credentials {
 
     private final String clientId;
     private final String clientSecret;
@@ -18,8 +18,8 @@ public class DefaultCredentials implements Credentials{
     }
 
     public DefaultCredentials(String clientId, String clientSecret, String securityToken) {
-        if (clientId != null && !"".equals(clientId)){
-            if (clientSecret != null && !"".equals(clientSecret)){
+        if (clientId != null && !"".equals(clientId)) {
+            if (clientSecret != null && !"".equals(clientSecret)) {
                 this.clientId = clientId;
                 this.clientSecret = clientSecret;
                 this.securityToken = securityToken;

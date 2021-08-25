@@ -5,7 +5,7 @@ package com.fkw.hdopen.exception;
  * @Description 无效证书异常
  * @date 2021/7/26 11:54
  */
-public class InvalidCredentialsException extends RuntimeException{
+public class InvalidCredentialsException extends RuntimeException {
     private static final long serialVersionUID = 1L;
 
     public InvalidCredentialsException() {

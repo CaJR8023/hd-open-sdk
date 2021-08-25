@@ -1,5 +1,6 @@
 package com.fkw.hdopen.model;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fkw.hdopen.Operation;
 import com.fkw.hdopen.auth.CredentialsProvider;
 import com.fkw.hdopen.client.ServiceClient;
@@ -16,15 +17,15 @@ public class TestOperation extends Operation {
         super(client, credentialsProvider);
     }
 
-    public String test(){
+    public String test() {
         String uri = endpoint + "/";
         Request request = new Request.Builder().url(uri).build();
-        return doOperation(request, String.class);
+        return doOperation(request, new TypeReference<String>() {});
     }
 
-    public Result<String> test1(){
+    public Result<String> test1() {
         String uri = endpoint + ResourceUri.TEST_URI.getUri();
         Request request = new Request.Builder().url(uri).build();
-        return doOperation(request, Result.class);
+        return doOperation(request, new TypeReference<Result<String>>() {});
     }
 }

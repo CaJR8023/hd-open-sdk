@@ -15,5 +15,4 @@ public class AuthOperation extends Operation {
     }
 
 
-
 }

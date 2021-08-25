@@ -10,7 +10,8 @@ import com.fkw.hdopen.model.Result;
 public interface HdPartner {
 
     /**
-     *  测试
+     * 测试
+     *
      * @return java.lang.String
      * @author CAJR
      * @date 2021/7/27

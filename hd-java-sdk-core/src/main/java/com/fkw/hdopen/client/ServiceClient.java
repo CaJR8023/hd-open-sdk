@@ -24,7 +24,8 @@ public abstract class ServiceClient {
     }
 
     /**
-     *  发送请求抽象方法
+     * 发送请求抽象方法
+     *
      * @param request 请求
      * @param context 请求上下文
      * @return okhttp3.Response
