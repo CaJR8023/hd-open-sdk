@@ -106,19 +106,123 @@ public enum HttpStatus {
     NOT_EXTENDED(510, "Not Extended"),
     NETWORK_AUTHENTICATION_REQUIRED(511, "Network Authentication Required");
 
-    private final int status;
+    private final int value;
     private final String reasonPhrase;
 
-    HttpStatus(int status, String reasonPhrase) {
-        this.status = status;
+    private HttpStatus(int value, String reasonPhrase) {
+        this.value = value;
         this.reasonPhrase = reasonPhrase;
     }
 
-    public int getStatus() {
-        return status;
+    public int value() {
+        return this.value;
     }
 
     public String getReasonPhrase() {
-        return reasonPhrase;
+        return this.reasonPhrase;
+    }
+
+    public HttpStatus.Series series() {
+        return HttpStatus.Series.valueOf(this);
+    }
+
+    public boolean is1xxInformational() {
+        return this.series() == HttpStatus.Series.INFORMATIONAL;
+    }
+
+    public boolean is2xxSuccessful() {
+        return this.series() == HttpStatus.Series.SUCCESSFUL;
+    }
+
+    public boolean is3xxRedirection() {
+        return this.series() == HttpStatus.Series.REDIRECTION;
+    }
+
+    public boolean is4xxClientError() {
+        return this.series() == HttpStatus.Series.CLIENT_ERROR;
+    }
+
+    public boolean is5xxServerError() {
+        return this.series() == HttpStatus.Series.SERVER_ERROR;
+    }
+
+    public boolean isError() {
+        return this.is4xxClientError() || this.is5xxServerError();
+    }
+
+    @Override
+    public String toString() {
+        return this.value + " " + this.name();
+    }
+
+    public static HttpStatus valueOf(int statusCode) {
+        HttpStatus status = resolve(statusCode);
+        if (status == null) {
+            throw new IllegalArgumentException("No matching constant for [" + statusCode + "]");
+        } else {
+            return status;
+        }
+    }
+
+    public static HttpStatus resolve(int statusCode) {
+        HttpStatus[] var1 = values();
+        int var2 = var1.length;
+
+        for (int var3 = 0; var3 < var2; ++var3) {
+            HttpStatus status = var1[var3];
+            if (status.value == statusCode) {
+                return status;
+            }
+        }
+
+        return null;
+    }
+
+    public static enum Series {
+        /**
+         * Series
+         */
+        INFORMATIONAL(1),
+        SUCCESSFUL(2),
+        REDIRECTION(3),
+        CLIENT_ERROR(4),
+        SERVER_ERROR(5);
+
+        private final int value;
+
+        private Series(int value) {
+            this.value = value;
+        }
+
+        public int value() {
+            return this.value;
+        }
+
+        public static HttpStatus.Series valueOf(HttpStatus status) {
+            return valueOf(status.value);
+        }
+
+        public static HttpStatus.Series valueOf(int statusCode) {
+            HttpStatus.Series series = resolve(statusCode);
+            if (series == null) {
+                throw new IllegalArgumentException("No matching constant for [" + statusCode + "]");
+            } else {
+                return series;
+            }
+        }
+
+        public static HttpStatus.Series resolve(int statusCode) {
+            int seriesCode = statusCode / 100;
+            HttpStatus.Series[] httpStatusSeries = values();
+            int var3 = httpStatusSeries.length;
+
+            for (Series series : httpStatusSeries) {
+                if (series.value == seriesCode) {
+                    return series;
+                }
+            }
+
+            return null;
+        }
     }
 }

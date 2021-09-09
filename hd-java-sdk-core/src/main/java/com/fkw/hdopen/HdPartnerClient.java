@@ -14,24 +14,27 @@ import java.net.URISyntaxException;
  * @Description 互动合作方客户端
  * @date 2021/7/26 10:21
  */
-public class HdPartnerClient implements HdPartner {
+public abstract class HdPartnerClient implements HdPartner {
 
-    private URI endpoint;
-    private final CredentialsProvider credentialsProvider;
-    private final ServiceClient serviceClient;
-    private TestOperation testOperation;
+    public URI endpoint;
+    public final CredentialsProvider credentialsProvider;
+    public final ServiceClient serviceClient;
 
     public HdPartnerClient(CredentialsProvider credentialsProvider, ClientConfiguration configuration) {
         this.credentialsProvider = credentialsProvider;
         configuration = configuration == null ? new ClientConfiguration() : configuration;
         this.serviceClient = new DefaultServiceClient(configuration);
-        this.initOperations();
         this.setEndpoint(configuration.getHdResourceDomain());
+        this.initOperations();
     }
 
-    private void initOperations() {
-        this.testOperation = new TestOperation(serviceClient, credentialsProvider);
-    }
+    /**
+     * init operations
+     *
+     * @author CAJR
+     * @date 2021/9/9
+     */
+    public abstract void initOperations();
 
     public synchronized URI getEndpoint() {
         return URI.create(this.endpoint.toString());
@@ -39,7 +42,6 @@ public class HdPartnerClient implements HdPartner {
 
     public synchronized void setEndpoint(String endpoint) {
         this.endpoint = this.toURI(endpoint);
-        this.testOperation.setEndpoint(this.endpoint);
     }
 
     public CredentialsProvider getCredentialsProvider() {
@@ -60,15 +62,5 @@ public class HdPartnerClient implements HdPartner {
         } catch (URISyntaxException e) {
             throw new IllegalArgumentException(e);
         }
-    }
-
-    @Override
-    public String test() {
-        return testOperation.test();
-    }
-
-    @Override
-    public Result<String> test1() {
-        return testOperation.test1();
     }
 }

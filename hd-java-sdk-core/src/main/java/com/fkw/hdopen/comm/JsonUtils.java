@@ -91,6 +91,10 @@ public class JsonUtils {
         }
     }
 
+    public static <K, V> Map<K, V> toMap(Object obj, Class<K> kClass, Class<V> vClass) {
+        return MAPPER.convertValue(obj, MAPPER.getTypeFactory().constructMapType(Map.class, kClass, vClass));
+    }
+
     public static <T> T nativeRead(String json, TypeReference<T> type) {
         try {
             return MAPPER.readValue(json, type);

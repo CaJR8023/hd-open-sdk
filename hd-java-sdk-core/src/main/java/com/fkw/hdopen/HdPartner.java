@@ -16,7 +16,5 @@ public interface HdPartner {
      * @author CAJR
      * @date 2021/7/27
      */
-    String test();
-
-    Result<String> test1();
+    Result<String> test();
 }

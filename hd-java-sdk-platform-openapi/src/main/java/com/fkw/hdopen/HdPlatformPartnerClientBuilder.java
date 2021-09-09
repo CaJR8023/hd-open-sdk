@@ -1,36 +1,32 @@
 package com.fkw.hdopen;
 
-
 import com.fkw.hdopen.auth.CredentialsProvider;
 import com.fkw.hdopen.auth.DefaultCredentialsProvider;
 
 /**
  * @author CAJR
- * @Description 合作方客户端生成器
- * @date 2021/7/26 10:33
+ * @Description platform partner client builder
+ * @date 2021/9/9 13:55
  */
-public class HdPartnerClientBuilder implements ClientBuilder {
-    public HdPartnerClientBuilder() {
-    }
-
+public class HdPlatformPartnerClientBuilder implements ClientBuilder{
     @Override
     public HdPartner build(String clientId, String clientSecret) {
-        return new HdPartnerClient(getDefaultCredentialProvider(clientId, clientSecret), null);
+        return new HdPlatformPartnerClient(getDefaultCredentialProvider(clientId, clientSecret), null);
     }
 
     @Override
     public HdPartner build(String clientId, String clientSecret, ClientConfiguration configuration) {
-        return new HdPartnerClient(getDefaultCredentialProvider(clientId, clientSecret), configuration);
+        return new HdPlatformPartnerClient(getDefaultCredentialProvider(clientId, clientSecret), configuration);
     }
 
     @Override
     public HdPartner build(CredentialsProvider credentialsProvider) {
-        return new HdPartnerClient(credentialsProvider, null);
+        return new HdPlatformPartnerClient(credentialsProvider, null);
     }
 
     @Override
     public HdPartner build(CredentialsProvider credentialsProvider, ClientConfiguration configuration) {
-        return new HdPartnerClient(credentialsProvider, configuration);
+        return new HdPlatformPartnerClient(credentialsProvider, configuration);
     }
 
     private static DefaultCredentialsProvider getDefaultCredentialProvider(String clientId, String clientSecret) {

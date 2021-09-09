@@ -31,6 +31,7 @@ public abstract class ServiceClient {
      * @return okhttp3.Response
      * @author CAJR
      * @date 2021/7/27
+     * @throws IOException e
      */
     public abstract Response sendRequest(Request request, ExecutionContext context) throws IOException;
 }
