@@ -43,11 +43,7 @@ public class DefaultCredentials implements Credentials {
 
     @Override
     public String getSecurityToken() {
-        return this.securityToken;
+        return securityToken;
     }
 
-    @Override
-    public boolean useSecurityToken() {
-        return this.securityToken != null;
-    }
 }

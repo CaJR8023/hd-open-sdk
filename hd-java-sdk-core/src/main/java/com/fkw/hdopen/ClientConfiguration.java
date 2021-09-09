@@ -12,8 +12,8 @@ import java.util.concurrent.TimeUnit;
  * @date 2021/7/26 10:42
  */
 public class ClientConfiguration {
-    public static final String DEFAULT_CLIENT_AUTH_CNAME = "openauth-hd.fkw.com";
-    public static final String DEFAULT_RESOURCE_CNAME = "open-hd.fkw.com";
+    public static final String DEFAULT_CLIENT_AUTH_CNAME = "172.17.8.21:51940";
+    public static final String DEFAULT_RESOURCE_CNAME = "172.17.8.21:51941";
     public static final String DEFAULT_AUTH_SCOPE = "all";
     public static final TimeUnit DEFAULT_TIME_UNIT = TimeUnit.MILLISECONDS;
     public static final int DEFAULT_MAX_RETRIES = 3;
@@ -27,47 +27,89 @@ public class ClientConfiguration {
     public static final int DEFAULT_REQUEST_TIMEOUT = 300000;
     public static final long DEFAULT_SLOW_REQUESTS_THRESHOLD = 300000L;
 
-    /** 客户端授权域名 */
+    /**
+     * 客户端授权域名
+     */
     protected String clientAuthCname;
-    /** 凡科互动资源域名 */
+    /**
+     * 凡科互动资源域名
+     */
     protected String hdResourceCname;
-    /** 授权范围值 */
+    /**
+     * 授权范围值
+     */
     protected String authScope;
-    /** 时间类型 */
+    /**
+     * 时间类型
+     */
     protected TimeUnit timeUnit;
-    /** 网络协议 */
+    /**
+     * 网络协议
+     */
     protected Protocol protocol;
-    /** 最多几次错误重试 */
+    /**
+     * 最多几次错误重试
+     */
     protected int maxErrorRetry;
-    /** 是否连接重试 */
+    /**
+     * 是否连接重试
+     */
     protected boolean retryOnConnectionFailure;
-    /** 连接request超时 */
+    /**
+     * 连接request超时
+     */
     protected int connectionRequestTimeout;
-    /** 连接超时时长 */
+    /**
+     * 连接超时时长
+     */
     protected int connectionTimeout;
-    /** 读超时时长 */
+    /**
+     * 读超时时长
+     */
     protected int readTimeout;
-    /** 写超时时长 */
+    /**
+     * 写超时时长
+     */
     protected int writeTimeout;
-    /** 套接字连接超时时长 */
+    /**
+     * 套接字连接超时时长
+     */
     protected int socketTimeout;
-    /** 最大连接数 */
+    /**
+     * 最大连接数
+     */
     protected int maxConnections;
-    /** 空闲连接时长 */
+    /**
+     * 空闲连接时长
+     */
     protected long idleConnectionTime;
-    /** 代理host */
+    /**
+     * 代理host
+     */
     protected String proxyHost;
-    /** 代理端口 */
+    /**
+     * 代理端口
+     */
     protected int proxyPort;
-    /** 代理服务器的授权验证 */
+    /**
+     * 代理服务器的授权验证
+     */
     protected Authenticator authenticator;
-    /** 请求超时时长 */
+    /**
+     * 请求超时时长
+     */
     protected int requestTimeout;
-    /** 是否开启请求超时 */
+    /**
+     * 是否开启请求超时
+     */
     protected boolean requestTimeoutEnabled;
-    /** 慢请求阈值 */
+    /**
+     * 慢请求阈值
+     */
     protected long slowRequestsThreshold;
-    /** 是否开启循环冗余校验, 主要用来检测或校验数据传输或者保存后可能出现的错误*/
+    /**
+     * 是否开启循环冗余校验, 主要用来检测或校验数据传输或者保存后可能出现的错误
+     */
     protected boolean crcCheckEnabled;
 
     public ClientConfiguration() {

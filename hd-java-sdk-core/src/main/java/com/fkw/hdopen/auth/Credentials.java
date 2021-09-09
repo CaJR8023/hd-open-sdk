@@ -13,6 +13,4 @@ public interface Credentials {
 
     String getSecurityToken();
 
-    boolean useSecurityToken();
-
 }

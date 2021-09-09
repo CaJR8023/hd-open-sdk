@@ -36,7 +36,6 @@ public class DefaultServiceClient extends ServiceClient {
             Proxy proxy = new Proxy(type, socketAddress);
             this.okHttpClient = this.okHttpClient.newBuilder().proxy(proxy).build();
         }
-
     }
 
     @Override
