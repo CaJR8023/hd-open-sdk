@@ -10,11 +10,10 @@ import com.fkw.hdopen.model.Result;
 public interface HdPartner {
 
     /**
-     * 测试
+     * init operations
      *
-     * @return java.lang.String
      * @author CAJR
-     * @date 2021/7/27
+     * @date 2021/9/9
      */
-    Result<String> test();
+    void initOperations();
 }

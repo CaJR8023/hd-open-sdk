@@ -5,13 +5,15 @@ import okhttp3.internal.http.HttpHeaders;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
+import java.util.logging.Logger;
 
 /**
  * @author CAJR
  * @Description partner client response exception
  * @date 2021/9/9 16:44
  */
-public class PartnerClientResponseException extends OperationException{
+public class PartnerClientResponseException extends OperationException {
+    final static Logger logger = Logger.getLogger(PartnerClientResponseException.class.getSimpleName());
     private static final String DEFAULT_CHARSET = "ISO-8859-1";
     private final int rawStatusCode;
     private final String statusText;
@@ -26,6 +28,7 @@ public class PartnerClientResponseException extends OperationException{
         this.responseHeaders = responseHeaders;
         this.responseBody = responseBody != null ? responseBody : new byte[0];
         this.responseCharset = responseCharset != null ? responseCharset.name() : DEFAULT_CHARSET;
+        logger.info("response body: [" + getResponseBodyAsString() + "]");
     }
 
     public int getRawStatusCode() {
@@ -47,8 +50,8 @@ public class PartnerClientResponseException extends OperationException{
     public String getResponseBodyAsString() {
         try {
             return new String(this.responseBody, this.responseCharset);
-        } catch (UnsupportedEncodingException var2) {
-            throw new IllegalStateException(var2);
+        } catch (UnsupportedEncodingException e) {
+            throw new IllegalStateException(e);
         }
     }
 }

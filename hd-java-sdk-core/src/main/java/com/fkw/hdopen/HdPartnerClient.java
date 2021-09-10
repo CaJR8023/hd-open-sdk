@@ -3,8 +3,6 @@ package com.fkw.hdopen;
 import com.fkw.hdopen.auth.CredentialsProvider;
 import com.fkw.hdopen.client.DefaultServiceClient;
 import com.fkw.hdopen.client.ServiceClient;
-import com.fkw.hdopen.model.Result;
-import com.fkw.hdopen.model.TestOperation;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -27,14 +25,6 @@ public abstract class HdPartnerClient implements HdPartner {
         this.setEndpoint(configuration.getHdResourceDomain());
         this.initOperations();
     }
-
-    /**
-     * init operations
-     *
-     * @author CAJR
-     * @date 2021/9/9
-     */
-    public abstract void initOperations();
 
     public synchronized URI getEndpoint() {
         return URI.create(this.endpoint.toString());

@@ -26,11 +26,15 @@ public class JsonUtils {
             .enable(SerializationFeature.INDENT_OUTPUT)
             .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
             .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
+            // 允许属性名称没有引号
             .configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true)
+            // 低层级配置
             .configure(JsonParser.Feature.ALLOW_COMMENTS, true)
+            //对于空的对象转json的时候不抛出错误
             .disable(SerializationFeature.FAIL_ON_EMPTY_BEANS)
-            .configure(JsonGenerator.Feature.ESCAPE_NON_ASCII, true)
+            //允许单引号
             .configure(JsonParser.Feature.ALLOW_SINGLE_QUOTES, true)
+            //视空字符传为null
             .enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT);
 
     public static String toString(Object obj) {

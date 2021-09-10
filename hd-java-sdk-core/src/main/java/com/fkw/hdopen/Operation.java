@@ -12,10 +12,8 @@ import com.fkw.hdopen.exception.OperationException;
 import com.fkw.hdopen.exception.UnknownHttpStatusCodeException;
 import okhttp3.Request;
 import okhttp3.Response;
-import okhttp3.ResponseBody;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URI;
 import java.util.Objects;
 
@@ -69,7 +67,6 @@ public abstract class Operation {
         if (response.isSuccessful()) {
             return;
         }
-
         int code = response.code();
         if (HttpStatus.valueOf(code).is4xxClientError()) {
             throw new HttpClientErrorException(HttpStatus.valueOf(code), "client error",

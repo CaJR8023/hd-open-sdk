@@ -3,6 +3,7 @@ package com.fkw.hdopen.operation;
 import com.fkw.hdopen.model.HdOpenActivityVO;
 import com.fkw.hdopen.model.PageResult;
 import com.fkw.hdopen.model.Result;
+import com.fkw.hdopen.model.request.CallHdOpenActivitiesPageApiVO;
 
 /**
  * @author CAJR
@@ -15,6 +16,5 @@ public interface IHdOpenActivityOperation {
 
     PageResult<HdOpenActivityVO> getOneHdActivityInfoByPage(int aid, Integer pageNo, Integer pageSize);
 
-    PageResult<HdOpenActivityVO> getOneHdActivityInfoByPage(int aid, Integer activityType, String sort, Integer pageNo, Integer pageSize);
-
+    PageResult<HdOpenActivityVO> getOneHdActivityInfoByPage(CallHdOpenActivitiesPageApiVO vo);
 }

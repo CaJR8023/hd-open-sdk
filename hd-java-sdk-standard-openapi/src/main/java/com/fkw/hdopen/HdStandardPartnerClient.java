@@ -16,17 +16,16 @@ import java.util.List;
 
 /**
  * @author CAJR
- * @Description 平台类合作方客户端
- * @date 2021/9/9 14:00
+ * @Description 标准类合作方客户端
+ * @date 2021/9/10 18:18
  */
-public class HdPlatformPartnerClient extends HdPartnerClient {
-
+public class HdStandardPartnerClient extends HdPartnerClient{
     private IHdOpenActivityOperation hdOpenActivityOperation;
     private IHdOpenActivityUserOperation hdOpenActivityUserOperation;
     private IHdOpenActivitySpreadStatOperation hdOpenActivitySpreadStatOperation;
     private IHdOpenConsumeRecordOperation hdOpenConsumeRecordOperation;
 
-    public HdPlatformPartnerClient(CredentialsProvider credentialsProvider, ClientConfiguration configuration) {
+    public HdStandardPartnerClient(CredentialsProvider credentialsProvider, ClientConfiguration configuration) {
         super(credentialsProvider, configuration);
     }
 

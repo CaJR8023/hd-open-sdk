@@ -2,13 +2,14 @@ package com.fkw.hdopen.operation.impl;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fkw.hdopen.Operation;
-import com.fkw.hdopen.ResourceUris;
+import com.fkw.hdopen.comm.ResourceUris;
 import com.fkw.hdopen.auth.CredentialsProvider;
 import com.fkw.hdopen.client.ServiceClient;
 import com.fkw.hdopen.comm.HttpRequestUtils;
 import com.fkw.hdopen.model.HdOpenActivityVO;
 import com.fkw.hdopen.model.PageResult;
 import com.fkw.hdopen.model.Result;
+import com.fkw.hdopen.model.request.CallHdOpenActivitiesPageApiVO;
 import com.fkw.hdopen.operation.IHdOpenActivityOperation;
 import okhttp3.Request;
 
@@ -41,20 +42,18 @@ public class HdOpenActivityOperation extends Operation implements IHdOpenActivit
 
     @Override
     public PageResult<HdOpenActivityVO> getOneHdActivityInfoByPage(int aid, Integer pageNo, Integer pageSize) {
-        return getOneHdActivityInfoByPage(aid, null, null, pageNo, pageSize);
+        CallHdOpenActivitiesPageApiVO vo = new CallHdOpenActivitiesPageApiVO()
+                .setAid(aid)
+                .setPageNo(pageNo)
+                .setPageSize(pageSize);
+        return getOneHdActivityInfoByPage(vo);
     }
 
     @Override
-    public PageResult<HdOpenActivityVO> getOneHdActivityInfoByPage(int aid, Integer activityType, String sort, Integer pageNo, Integer pageSize) {
+    public PageResult<HdOpenActivityVO> getOneHdActivityInfoByPage(CallHdOpenActivitiesPageApiVO vo) {
         String uri = endpoint + ResourceUris.GET_PAGE_ACTIVITY_INFO_LIST_URI.getUri();
         String method = ResourceUris.GET_PAGE_ACTIVITY_INFO_LIST_URI.getMethod();
-        Map<String, String> params = new HashMap<>(8);
-        params.put("aid", String.valueOf(aid));
-        params.put("activityType", String.valueOf(activityType));
-        params.put("sort", sort);
-        params.put("pageNo", String.valueOf(pageNo));
-        params.put("pageSize", String.valueOf(pageSize));
-        Request request = HttpRequestUtils.buildRequest(uri, method, params);
+        Request request = HttpRequestUtils.buildRequest(uri, method, vo);
         return doOperation(request, new TypeReference<PageResult<HdOpenActivityVO>>() {
         });
     }
