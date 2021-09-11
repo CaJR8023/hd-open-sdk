@@ -31,10 +31,10 @@ public class HdStandardPartnerClient extends HdPartnerClient{
 
     @Override
     public void initOperations() {
-        this.hdOpenActivityOperation = new HdOpenActivityOperation(endpoint, serviceClient, credentialsProvider);
-        this.hdOpenActivityUserOperation = new HdOpenActivityUserOperation(endpoint, serviceClient, credentialsProvider);
-        this.hdOpenActivitySpreadStatOperation = new HdOpenActivitySpreadStatOperation(endpoint, serviceClient, credentialsProvider);
-        this.hdOpenConsumeRecordOperation = new HdOpenConsumeRecordOperation(endpoint, serviceClient, credentialsProvider);
+        this.hdOpenActivityOperation = new HdOpenActivityOperation(getEndpoint(), serviceClient, credentialsProvider);
+        this.hdOpenActivityUserOperation = new HdOpenActivityUserOperation(getEndpoint(), serviceClient, credentialsProvider);
+        this.hdOpenActivitySpreadStatOperation = new HdOpenActivitySpreadStatOperation(getEndpoint(), serviceClient, credentialsProvider);
+        this.hdOpenConsumeRecordOperation = new HdOpenConsumeRecordOperation(getEndpoint(), serviceClient, credentialsProvider);
     }
 
     public Result<HdOpenActivityVO> getOneHdActivityInfo(int aid, int activityId) {

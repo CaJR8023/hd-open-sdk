@@ -55,7 +55,7 @@
         <jackson-databind.version>2.11.3</jackson-databind.version>
         <java.version>1.8</java.version>
         <junit.version>4.13</junit.version>
-        <okhttp.version>4.0.0</okhttp.version>
+        <okhttp.version>4.9.0</okhttp.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>

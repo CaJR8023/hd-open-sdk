@@ -14,9 +14,9 @@ import java.net.URISyntaxException;
  */
 public abstract class HdPartnerClient implements HdPartner {
 
-    public URI endpoint;
-    public final CredentialsProvider credentialsProvider;
-    public final ServiceClient serviceClient;
+    private URI endpoint;
+    protected final CredentialsProvider credentialsProvider;
+    protected final ServiceClient serviceClient;
 
     public HdPartnerClient(CredentialsProvider credentialsProvider, ClientConfiguration configuration) {
         this.credentialsProvider = credentialsProvider;
