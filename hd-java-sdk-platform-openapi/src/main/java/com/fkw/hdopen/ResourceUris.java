@@ -1,20 +1,21 @@
-package com.fkw.hdopen.comm;
+package com.fkw.hdopen;
 
 /**
  * @author CAJR
  * @Description hd open resource api
- * @date 2021/7/27 15:47
+ * @date 2021/9/13 10:25
  */
-public enum ResourceUri {
+public enum ResourceUris {
     /**
-     * test
+     * resources api
      */
-    BASE_CONTEXT_PREFIX_URI("/open-api", ""),
-    TEST_URI("/test", "GET");
+    HD_OPEN_REGISTER("/account/hd-register", "POST"),
+    HD_OPEN_LOGIN("/account/hd-login", "POST"),
+    ;
     private final String uri;
     private final String method;
 
-    ResourceUri(String uri, String method) {
+    ResourceUris(String uri, String method) {
         this.uri = uri;
         this.method = method;
     }

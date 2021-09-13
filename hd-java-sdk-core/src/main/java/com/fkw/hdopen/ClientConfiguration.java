@@ -1,7 +1,7 @@
 package com.fkw.hdopen;
 
 import com.fkw.hdopen.comm.Protocol;
-import com.fkw.hdopen.comm.ResourceUri;
+import com.fkw.hdopen.comm.ResourceUris;
 import okhttp3.Authenticator;
 
 import java.util.concurrent.TimeUnit;
@@ -149,7 +149,7 @@ public class ClientConfiguration {
     }
 
     public String getHdResourceDomain() {
-        return this.protocol.toString() + "://" + hdResourceCname + ResourceUri.BASE_CONTEXT_PREFIX_URI.getUri();
+        return this.protocol.toString() + "://" + hdResourceCname + ResourceUris.BASE_CONTEXT_PREFIX_URI.getUri();
     }
 
     public void setHdResourceCname(String hdResourceCname) {

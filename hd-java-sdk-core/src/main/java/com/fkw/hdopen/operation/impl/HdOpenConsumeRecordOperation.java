@@ -38,8 +38,8 @@ public class HdOpenConsumeRecordOperation extends Operation implements IHdOpenCo
 
     @Override
     public Result<HdCodeStatusVO> getCodeStatus(int aid, String code) {
-        String uri = endpoint + ResourceUris.GET_ONE_ACTIVITY_USER_BY_FAI_OPENID.getUri();
-        String method = ResourceUris.GET_ONE_ACTIVITY_USER_BY_FAI_OPENID.getMethod();
+        String uri = endpoint + ResourceUris.GET_CODE_STATUS.getUri();
+        String method = ResourceUris.GET_CODE_STATUS.getMethod();
         Map<String, String> params = new HashMap<>(8);
         params.put("aid", String.valueOf(aid));
         params.put("code", code);
