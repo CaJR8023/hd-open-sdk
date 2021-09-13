@@ -12,8 +12,8 @@ import java.util.concurrent.TimeUnit;
  * @date 2021/7/26 10:42
  */
 public class ClientConfiguration {
-    public static final String DEFAULT_CLIENT_AUTH_CNAME = "172.17.8.21:51940";
-    public static final String DEFAULT_RESOURCE_CNAME = "172.17.8.21:51941";
+    public static final String DEFAULT_CLIENT_AUTH_CNAME = "open-hd.fkw.com";
+    public static final String DEFAULT_RESOURCE_CNAME = "openauth-hd.fkw.com";
     public static final String DEFAULT_AUTH_SCOPE = "all";
     public static final TimeUnit DEFAULT_TIME_UNIT = TimeUnit.MILLISECONDS;
     public static final int DEFAULT_MAX_RETRIES = 3;
@@ -126,7 +126,7 @@ public class ClientConfiguration {
         this.socketTimeout = DEFAULT_SOCKET_TIMEOUT;
         this.maxConnections = DEFAULT_MAX_CONNECTIONS;
         this.idleConnectionTime = DEFAULT_IDLE_CONNECTION_TIME;
-        this.protocol = Protocol.HTTP;
+        this.protocol = Protocol.HTTPS;
         this.requestTimeout = DEFAULT_REQUEST_TIMEOUT;
         this.requestTimeoutEnabled = false;
         this.slowRequestsThreshold = DEFAULT_SLOW_REQUESTS_THRESHOLD;

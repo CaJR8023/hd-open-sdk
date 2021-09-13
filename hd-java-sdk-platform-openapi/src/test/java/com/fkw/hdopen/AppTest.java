@@ -1,5 +1,6 @@
 package com.fkw.hdopen;
 
+import com.fkw.hdopen.comm.Protocol;
 import org.junit.Test;
 
 /**
@@ -13,7 +14,12 @@ public class AppTest {
     public void testAuth() {
         String clientId = "fk-hd-open-client-21";
         String clientSecret = "ca7db9bc4348ac21975c2e4ca21b8697";
-        HdPlatformPartnerClient partner = new HdPlatformPartnerClientBuilder().build(clientId, clientSecret);
+        ClientConfiguration configuration = new ClientConfiguration();
+        configuration.setClientAuthCname("172.17.8.21:51940");
+        configuration.setHdResourceCname("172.17.8.21:51941");
+        configuration.setProtocol(Protocol.HTTP);
+        HdPlatformPartnerClient partner = new HdPlatformPartnerClientBuilder()
+                .build(clientId, clientSecret, configuration);
 
         System.out.println(partner.getOneHdActivityInfo(9890827, 30));
         System.out.println(partner.getOneHdActivityInfoByPage(9890827, 1, 10));
