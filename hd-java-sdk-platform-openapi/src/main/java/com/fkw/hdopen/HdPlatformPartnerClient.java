@@ -38,16 +38,16 @@ public class HdPlatformPartnerClient extends HdPartnerClient {
         return iHdOpenActivityOperation.getOneHdActivityInfo(aid, activityId);
     }
 
-    public PageResult<HdOpenActivityVO> getOneHdActivityInfoByPage(int aid, Integer pageNo, Integer pageSize) {
-        return iHdOpenActivityOperation.getOneHdActivityInfoByPage(aid, pageNo, pageSize);
+    public PageResult<HdOpenActivityVO> getHdActivityInfoByPage(int aid, Integer pageNo, Integer pageSize) {
+        return iHdOpenActivityOperation.getHdActivityInfoByPage(aid, pageNo, pageSize);
     }
 
-    public PageResult<HdOpenActivityVO> getOneHdActivityInfoByPage(int aid, Integer activityType, String sort, Integer pageNo, Integer pageSize) {
+    public PageResult<HdOpenActivityVO> getHdActivityInfoByPage(int aid, Integer activityType, String sort, Integer pageNo, Integer pageSize) {
         CallHdOpenActivitiesPageApiVO vo = new CallHdOpenActivitiesPageApiVO().setAid(aid)
                 .setActivityType(activityType).setSort(sort)
                 .setPageNo(pageNo)
                 .setPageSize(pageSize);
-        return iHdOpenActivityOperation.getOneHdActivityInfoByPage(vo);
+        return iHdOpenActivityOperation.getHdActivityInfoByPage(vo);
     }
 
     public Result<List<HdActivitySpreadStatLevelVO>> getActivitySpreadStatLevel(int aid, int activityId) {

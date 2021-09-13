@@ -13,7 +13,23 @@ import java.util.List;
  */
 public interface IHdOpenActivitySpreadStatOperation {
 
+    /** 
+     *  
+     * @param aid
+     * @param activityId
+     * @return com.fkw.hdopen.model.Result<java.util.List<com.fkw.hdopen.model.HdActivitySpreadStatLevelVO>>
+     * @author CAJR
+     * @date 2021/9/13 
+     */ 
     Result<List<HdActivitySpreadStatLevelVO>> getActivitySpreadStatLevel(int aid, int activityId);
 
+    /** 
+     *
+     * @param aid
+ * @param activityId
+     * @return com.fkw.hdopen.model.Result<com.fkw.hdopen.model.HdActivityUserSpreadStatVO>
+     * @author CAJR
+     * @date 2021/9/13 
+     */ 
     Result<HdActivityUserSpreadStatVO> getActivityUserSpreadStat(int aid, int activityId);
 }

@@ -42,7 +42,7 @@ public class HdStandardPartnerClient extends HdPartnerClient{
     }
 
     public PageResult<HdOpenActivityVO> getOneHdActivityInfoByPage(int aid, Integer pageNo, Integer pageSize) {
-        return hdOpenActivityOperation.getOneHdActivityInfoByPage(aid, pageNo, pageSize);
+        return hdOpenActivityOperation.getHdActivityInfoByPage(aid, pageNo, pageSize);
     }
 
     public PageResult<HdOpenActivityVO> getOneHdActivityInfoByPage(int aid, Integer activityType, String sort, Integer pageNo, Integer pageSize) {
@@ -50,7 +50,7 @@ public class HdStandardPartnerClient extends HdPartnerClient{
                 .setActivityType(activityType).setSort(sort)
                 .setPageNo(pageNo)
                 .setPageSize(pageSize);
-        return hdOpenActivityOperation.getOneHdActivityInfoByPage(vo);
+        return hdOpenActivityOperation.getHdActivityInfoByPage(vo);
     }
 
     public Result<List<HdActivitySpreadStatLevelVO>> getActivitySpreadStatLevel(int aid, int activityId) {

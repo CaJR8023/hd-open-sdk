@@ -41,16 +41,16 @@ public class HdOpenActivityOperation extends Operation implements IHdOpenActivit
     }
 
     @Override
-    public PageResult<HdOpenActivityVO> getOneHdActivityInfoByPage(int aid, Integer pageNo, Integer pageSize) {
+    public PageResult<HdOpenActivityVO> getHdActivityInfoByPage(int aid, Integer pageNo, Integer pageSize) {
         CallHdOpenActivitiesPageApiVO vo = new CallHdOpenActivitiesPageApiVO()
                 .setAid(aid)
                 .setPageNo(pageNo)
                 .setPageSize(pageSize);
-        return getOneHdActivityInfoByPage(vo);
+        return getHdActivityInfoByPage(vo);
     }
 
     @Override
-    public PageResult<HdOpenActivityVO> getOneHdActivityInfoByPage(CallHdOpenActivitiesPageApiVO vo) {
+    public PageResult<HdOpenActivityVO> getHdActivityInfoByPage(CallHdOpenActivitiesPageApiVO vo) {
         String uri = endpoint + ResourceUris.GET_PAGE_ACTIVITY_INFO_LIST_URI.getUri();
         String method = ResourceUris.GET_PAGE_ACTIVITY_INFO_LIST_URI.getMethod();
         Request request = HttpRequestUtils.buildRequest(uri, method, vo);
