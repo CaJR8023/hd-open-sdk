@@ -1,7 +1,5 @@
 package com.fkw.hdopen;
 
-import com.fkw.hdopen.model.Result;
-
 /**
  * @author CAJR
  * @Description 互动合作方对接总接口
