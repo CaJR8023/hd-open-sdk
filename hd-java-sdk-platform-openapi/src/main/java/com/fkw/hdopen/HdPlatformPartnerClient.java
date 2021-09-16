@@ -15,11 +15,13 @@ import java.util.List;
  */
 public class HdPlatformPartnerClient extends HdPartnerClient {
 
+    private IOpenSecurityOperation iOpenSecurityOperation;
     private IHdOpenAccountOperation iHdOpenAccountOperation;
     private IHdOpenActivityOperation iHdOpenActivityOperation;
     private IHdOpenActivityUserOperation iHdOpenActivityUserOperation;
     private IHdOpenActivitySpreadStatOperation iHdOpenActivitySpreadStatOperation;
     private IHdOpenConsumeRecordOperation iHdOpenConsumeRecordOperation;
+    private IOpenToolOperation iOpenToolOperation;
 
     public HdPlatformPartnerClient(CredentialsProvider credentialsProvider, ClientConfiguration configuration) {
         super(credentialsProvider, configuration);
@@ -27,11 +29,13 @@ public class HdPlatformPartnerClient extends HdPartnerClient {
 
     @Override
     public void initOperations() {
+        this.iOpenSecurityOperation = new OpenSecurityOperation(getEndpoint(), serviceClient, credentialsProvider);
         this.iHdOpenAccountOperation = new HdOpenAccountOperation(getEndpoint(), serviceClient, credentialsProvider);
         this.iHdOpenActivityOperation = new HdOpenActivityOperation(getEndpoint(), serviceClient, credentialsProvider);
         this.iHdOpenActivityUserOperation = new HdOpenActivityUserOperation(getEndpoint(), serviceClient, credentialsProvider);
         this.iHdOpenActivitySpreadStatOperation = new HdOpenActivitySpreadStatOperation(getEndpoint(), serviceClient, credentialsProvider);
         this.iHdOpenConsumeRecordOperation = new HdOpenConsumeRecordOperation(getEndpoint(), serviceClient, credentialsProvider);
+        this.iOpenToolOperation = new OpenToolOperation(getEndpoint(), serviceClient, credentialsProvider);
     }
 
     public Result<HdOpenActivityVO> getOneHdActivityInfo(int aid, int activityId) {
@@ -48,6 +52,10 @@ public class HdPlatformPartnerClient extends HdPartnerClient {
                 .setPageNo(pageNo)
                 .setPageSize(pageSize);
         return iHdOpenActivityOperation.getHdActivityInfoByPage(vo);
+    }
+
+    public Result<String> getPublicKey() {
+        return iOpenSecurityOperation.getPublicKey();
     }
 
     public Result<List<HdActivitySpreadStatLevelVO>> getActivitySpreadStatLevel(int aid, int activityId) {
@@ -94,16 +102,24 @@ public class HdPlatformPartnerClient extends HdPartnerClient {
         return iHdOpenConsumeRecordOperation.getRedPacketRecord(aid, activityId, cmCode);
     }
 
-    public Result<HdAccountRegisterVO> register(String partnerId){
+    public Result<HdAccountRegisterVO> register(String partnerId) {
         return iHdOpenAccountOperation.register(partnerId);
     }
 
-    public Result<HdAccountRegisterVO> registerOemAcct(String partnerId, Integer agentAid){
+    public Result<HdAccountRegisterVO> registerOemAcct(String partnerId, Integer agentAid) {
         return iHdOpenAccountOperation.registerOemAcct(partnerId, agentAid);
     }
 
-    public Result<HdAccountLoginVO> login(CallHdOpenLoginApiVO vo){
+    public Result<HdAccountLoginVO> login(CallHdOpenLoginApiVO vo) {
         return iHdOpenAccountOperation.login(vo);
+    }
+
+    public Result<String> transformLongUrl(String key) {
+        return iOpenToolOperation.transformLongUrl(key);
+    }
+
+    public Result<String> transformShortUrl(String url) {
+        return iOpenToolOperation.transformShortUrl(url);
     }
 
 }

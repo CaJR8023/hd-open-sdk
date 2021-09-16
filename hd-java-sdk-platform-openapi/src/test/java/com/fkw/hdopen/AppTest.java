@@ -15,13 +15,12 @@ public class AppTest {
         String clientId = "fk-hd-open-client-21";
         String clientSecret = "ca7db9bc4348ac21975c2e4ca21b8697";
         ClientConfiguration configuration = new ClientConfiguration();
-        configuration.setClientAuthCname("172.17.8.21:51940");
-        configuration.setHdResourceCname("172.17.8.21:51941");
+        configuration.setClientAuthCname("openauth-hd.fff.com");
+        configuration.setHdResourceCname("open-hd.fff.com");
         configuration.setProtocol(Protocol.HTTP);
         HdPlatformPartnerClient partner = new HdPlatformPartnerClientBuilder()
                 .build(clientId, clientSecret, configuration);
 
-        System.out.println(partner.getOneHdActivityInfo(9890827, 30));
-        System.out.println(partner.getOneHdActivityInfoByPage(9890827, 1, 10));
+        System.out.println(partner.transformLongUrl("5-1813025758"));
     }
 }

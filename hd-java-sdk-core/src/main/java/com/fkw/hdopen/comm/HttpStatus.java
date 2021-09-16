@@ -165,11 +165,9 @@ public enum HttpStatus {
     }
 
     public static HttpStatus resolve(int statusCode) {
-        HttpStatus[] var1 = values();
-        int var2 = var1.length;
+        HttpStatus[] httpStatuses = values();
 
-        for (int var3 = 0; var3 < var2; ++var3) {
-            HttpStatus status = var1[var3];
+        for (HttpStatus status : httpStatuses) {
             if (status.value == statusCode) {
                 return status;
             }
@@ -178,7 +176,7 @@ public enum HttpStatus {
         return null;
     }
 
-    public static enum Series {
+    public enum Series {
         /**
          * Series
          */
@@ -214,7 +212,6 @@ public enum HttpStatus {
         public static HttpStatus.Series resolve(int statusCode) {
             int seriesCode = statusCode / 100;
             HttpStatus.Series[] httpStatusSeries = values();
-            int var3 = httpStatusSeries.length;
 
             for (Series series : httpStatusSeries) {
                 if (series.value == seriesCode) {

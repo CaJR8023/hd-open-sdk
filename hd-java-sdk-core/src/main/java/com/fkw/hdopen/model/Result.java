@@ -1,5 +1,7 @@
 package com.fkw.hdopen.model;
 
+import com.fkw.hdopen.comm.JsonUtils;
+
 /**
  * @author CAJR
  * @Description 统一返回
@@ -41,5 +43,10 @@ public class Result<T> {
 
     public void setData(T data) {
         this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return JsonUtils.toString(this);
     }
 }

@@ -1,5 +1,7 @@
 package com.fkw.hdopen.model;
 
+import com.fkw.hdopen.comm.JsonUtils;
+
 import java.util.List;
 
 /**
@@ -92,5 +94,10 @@ public class PageResult<T> {
 
     public void setList(List<T> list) {
         this.list = list;
+    }
+
+    @Override
+    public String toString() {
+        return JsonUtils.toString(this);
     }
 }

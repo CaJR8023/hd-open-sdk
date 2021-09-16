@@ -3,14 +3,8 @@ package com.fkw.hdopen;
 import com.fkw.hdopen.auth.CredentialsProvider;
 import com.fkw.hdopen.model.*;
 import com.fkw.hdopen.model.request.*;
-import com.fkw.hdopen.operation.IHdOpenActivityOperation;
-import com.fkw.hdopen.operation.IHdOpenActivitySpreadStatOperation;
-import com.fkw.hdopen.operation.IHdOpenActivityUserOperation;
-import com.fkw.hdopen.operation.IHdOpenConsumeRecordOperation;
-import com.fkw.hdopen.operation.impl.HdOpenActivityOperation;
-import com.fkw.hdopen.operation.impl.HdOpenActivitySpreadStatOperation;
-import com.fkw.hdopen.operation.impl.HdOpenActivityUserOperation;
-import com.fkw.hdopen.operation.impl.HdOpenConsumeRecordOperation;
+import com.fkw.hdopen.operation.*;
+import com.fkw.hdopen.operation.impl.*;
 
 import java.util.List;
 
@@ -19,11 +13,14 @@ import java.util.List;
  * @Description 标准类合作方客户端
  * @date 2021/9/10 18:18
  */
-public class HdStandardPartnerClient extends HdPartnerClient{
+public class HdStandardPartnerClient extends HdPartnerClient {
+
+    private IOpenSecurityOperation iOpenSecurityOperation;
     private IHdOpenActivityOperation hdOpenActivityOperation;
     private IHdOpenActivityUserOperation hdOpenActivityUserOperation;
     private IHdOpenActivitySpreadStatOperation hdOpenActivitySpreadStatOperation;
     private IHdOpenConsumeRecordOperation hdOpenConsumeRecordOperation;
+    private IOpenToolOperation iOpenToolOperation;
 
     public HdStandardPartnerClient(CredentialsProvider credentialsProvider, ClientConfiguration configuration) {
         super(credentialsProvider, configuration);
@@ -31,10 +28,12 @@ public class HdStandardPartnerClient extends HdPartnerClient{
 
     @Override
     public void initOperations() {
+        this.iOpenSecurityOperation = new OpenSecurityOperation(getEndpoint(), serviceClient, credentialsProvider);
         this.hdOpenActivityOperation = new HdOpenActivityOperation(getEndpoint(), serviceClient, credentialsProvider);
         this.hdOpenActivityUserOperation = new HdOpenActivityUserOperation(getEndpoint(), serviceClient, credentialsProvider);
         this.hdOpenActivitySpreadStatOperation = new HdOpenActivitySpreadStatOperation(getEndpoint(), serviceClient, credentialsProvider);
         this.hdOpenConsumeRecordOperation = new HdOpenConsumeRecordOperation(getEndpoint(), serviceClient, credentialsProvider);
+        this.iOpenToolOperation = new OpenToolOperation(getEndpoint(), serviceClient, credentialsProvider);
     }
 
     public Result<HdOpenActivityVO> getOneHdActivityInfo(int aid, int activityId) {
@@ -51,6 +50,10 @@ public class HdStandardPartnerClient extends HdPartnerClient{
                 .setPageNo(pageNo)
                 .setPageSize(pageSize);
         return hdOpenActivityOperation.getHdActivityInfoByPage(vo);
+    }
+
+    public Result<String> getPublicKey() {
+        return iOpenSecurityOperation.getPublicKey();
     }
 
     public Result<List<HdActivitySpreadStatLevelVO>> getActivitySpreadStatLevel(int aid, int activityId) {
@@ -95,5 +98,13 @@ public class HdStandardPartnerClient extends HdPartnerClient{
 
     public Result<HdRedPacketVO> getRedPacketRecord(Integer aid, Integer activityId, String cmCode) {
         return hdOpenConsumeRecordOperation.getRedPacketRecord(aid, activityId, cmCode);
+    }
+
+    public Result<String> transformLongUrl(String key) {
+        return iOpenToolOperation.transformLongUrl(key);
+    }
+
+    public Result<String> transformShortUrl(String url) {
+        return iOpenToolOperation.transformShortUrl(url);
     }
 }

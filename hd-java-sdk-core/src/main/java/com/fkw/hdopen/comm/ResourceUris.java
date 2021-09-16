@@ -25,6 +25,9 @@ public enum ResourceUris {
     GET_CODE_STATUS("/consume/code-status", "GET"),
     CONSUME_CODE("/consume/code", "POST"),
     GET_RED_PACKET_RECORD("/consume/red-packet-record", "GET"),
+    GET_PUBLIC_KEY("/security/public-key", "GET"),
+    CHANGE_TO_LONG_URL("/tool/long-url", "GET"),
+    CHANGE_TO_SHORT_URL("/tool/short-url", "GET"),
     ;
     private final String uri;
     private final String method;
