@@ -54,6 +54,10 @@ public class HdPlatformPartnerClient extends HdPartnerClient {
         return iHdOpenActivityOperation.getHdActivityInfoByPage(vo);
     }
 
+    public String decryptByRsaPublicKey(String publicKey, String sign, String encryptedData) {
+        return iOpenSecurityOperation.decryptByRsaPublicKey(publicKey, sign, encryptedData);
+    }
+
     public Result<String> getPublicKey() {
         return iOpenSecurityOperation.getPublicKey();
     }
