@@ -43,7 +43,7 @@ public class OpenSecurityOperation extends Operation implements IOpenSecurityOpe
         try {
             sign = URLDecoder.decode(sign, StandardCharsets.UTF_8.name()).replace(" ", "+");
             encryptedData = URLDecoder.decode(encryptedData, StandardCharsets.UTF_8.name()).replace(" ", "+");
-            if (!RSAUtils.verify(publicKey, sign, encryptedData)) {
+            if (!RSAUtils.verify(publicKey, encryptedData, sign)) {
                 throw new VerifySignFailException("Verification signature failed: " + sign);
             }
 

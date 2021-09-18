@@ -18,9 +18,7 @@ public class AppTest {
         configuration.setClientAuthCname("openauth-hd.fff.com");
         configuration.setHdResourceCname("open-hd.fff.com");
         configuration.setProtocol(Protocol.HTTP);
-        HdPlatformPartnerClient partner = new HdPlatformPartnerClientBuilder()
+        HdPlatformPartnerClient platformPartnerClient = new HdPlatformPartnerClientBuilder()
                 .build(clientId, clientSecret, configuration);
-
-        System.out.println(partner.transformLongUrl("5-1813025758"));
     }
 }
