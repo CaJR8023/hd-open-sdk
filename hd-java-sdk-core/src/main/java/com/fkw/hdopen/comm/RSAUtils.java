@@ -33,15 +33,21 @@ public class RSAUtils {
      */
     public static final String SIGNATURE_ALGORITHM = "MD5withRSA";
 
-    public static boolean verify(String publicKey, String data, String sign) throws Exception {
+    /**
+     * 验证签名
+     *
+     * @param publicKey     公钥
+     * @param encryptedData 密文
+     * @param sign          签名
+     * @return boolean true:验证通过 false:验证不通过
+     * @author CAJR
+     * @date 2021/9/20
+     */
+    public static boolean verify(String publicKey, String encryptedData, String sign) throws Exception {
         if (StringUtils.isBlank(publicKey)) {
             return false;
         }
-        return verify(Base64.decode(data), getPublicKey(publicKey.getBytes()).getEncoded(), sign);
-    }
-
-    public static String decryptByPublicKey(String publicKey, String encryptedData) throws Exception {
-        return new String(decryptByPublicKey(Base64.decode(encryptedData), getPublicKey(publicKey.getBytes()).getEncoded()));
+        return verify(Base64.decode(encryptedData), Base64.decode(publicKey), Base64.decode(sign));
     }
 
     /**
@@ -54,7 +60,7 @@ public class RSAUtils {
      * @author CAJR
      * @date 2021/9/18
      */
-    public static boolean verify(byte[] data, byte[] keyBytes, String sign)
+    public static boolean verify(byte[] data, byte[] keyBytes, byte[] sign)
             throws NoSuchAlgorithmException, InvalidKeySpecException, InvalidKeyException, SignatureException {
         X509EncodedKeySpec keySpec = new X509EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
@@ -62,18 +68,23 @@ public class RSAUtils {
         Signature signature = Signature.getInstance(SIGNATURE_ALGORITHM);
         signature.initVerify(publicK);
         signature.update(data);
-        return signature.verify(Base64.decode(sign));
+        return signature.verify(sign);
     }
 
-    public static PublicKey getPublicKey(byte[] bytes) throws Exception {
-        bytes = java.util.Base64.getDecoder().decode(bytes);
-        X509EncodedKeySpec spec = new X509EncodedKeySpec(bytes);
-        KeyFactory factory = KeyFactory.getInstance(KEY_ALGORITHM);
-        return factory.generatePublic(spec);
+    /**
+     * 利用公钥解密
+     *
+     * @param publicKey     公钥字符串
+     * @param encryptedData 密文
+     * @return java.lang.String 明文
+     * @author CAJR
+     * @date 2021/9/20
+     */
+    public static String decryptByPublicKey(String publicKey, String encryptedData) throws Exception {
+        return new String(decryptByPublicKey(Base64.decode(encryptedData), Base64.decode(publicKey)));
     }
 
     private static byte[] decryptByPublicKey(byte[] data, byte[] key) throws Exception {
-        //取得私钥
         KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
         //密钥材料转换
         X509EncodedKeySpec x509KeySpec = new X509EncodedKeySpec(key);
@@ -88,26 +99,34 @@ public class RSAUtils {
         return cipher.doFinal(data);
     }
 
-    private static byte[] cipherDoFinal(Cipher cipher, byte[] srcBytes)
+    /**
+     *  分段解密
+     * @param cipher 解密器
+     * @param dataBytes  解密数据(Base64)
+     * @return byte[] 明文
+     * @author CAJR
+     * @date 2021/9/20
+     */
+    private static byte[] cipherDoFinal(Cipher cipher, byte[] dataBytes)
             throws IOException, BadPaddingException, IllegalBlockSizeException {
         if (RSAUtils.MAX_DECRYPT_BLOCK <= 0) {
             throw new RuntimeException("Segment size must be greater than 0");
         }
         ByteArrayOutputStream out = new ByteArrayOutputStream();
-        int inputLen = srcBytes.length;
+        int inputLen = dataBytes.length;
         int offSet = 0;
         byte[] cache;
         int i = 0;
         // 对数据分段解密
         while (inputLen - offSet > 0) {
-            if (inputLen - offSet > RSAUtils.MAX_DECRYPT_BLOCK) {
-                cache = cipher.doFinal(srcBytes, offSet, RSAUtils.MAX_DECRYPT_BLOCK);
+            if (inputLen - offSet > MAX_DECRYPT_BLOCK) {
+                cache = cipher.doFinal(dataBytes, offSet, MAX_DECRYPT_BLOCK);
             } else {
-                cache = cipher.doFinal(srcBytes, offSet, inputLen - offSet);
+                cache = cipher.doFinal(dataBytes, offSet, inputLen - offSet);
             }
             out.write(cache, 0, cache.length);
             i++;
-            offSet = i * RSAUtils.MAX_DECRYPT_BLOCK;
+            offSet = i * MAX_DECRYPT_BLOCK;
         }
         byte[] data = out.toByteArray();
         out.close();
