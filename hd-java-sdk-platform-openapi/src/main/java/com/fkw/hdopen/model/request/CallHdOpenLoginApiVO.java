@@ -18,11 +18,6 @@ public class CallHdOpenLoginApiVO {
     private Integer aid;
 
     /**
-     * 合作方id
-     */
-    private Integer type;
-
-    /**
      * 要登录的合作方账号id
      */
     private String partnerId;
@@ -44,15 +39,6 @@ public class CallHdOpenLoginApiVO {
 
     public CallHdOpenLoginApiVO setAid(Integer aid) {
         this.aid = aid;
-        return this;
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public CallHdOpenLoginApiVO setType(Integer type) {
-        this.type = type;
         return this;
     }
 

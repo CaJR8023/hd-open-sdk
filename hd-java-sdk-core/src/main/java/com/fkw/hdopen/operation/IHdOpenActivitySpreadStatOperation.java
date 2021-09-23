@@ -13,23 +13,25 @@ import java.util.List;
  */
 public interface IHdOpenActivitySpreadStatOperation {
 
-    /** 
-     *  
-     * @param aid
-     * @param activityId
-     * @return com.fkw.hdopen.model.Result<java.util.List<com.fkw.hdopen.model.HdActivitySpreadStatLevelVO>>
+    /**
+     * 获取活动传播层级的数据
+     *
+     * @param aid        凡科账号id
+     * @param activityId 活动id
+     * @return com.fkw.hdopen.model.Result<java.util.List < com.fkw.hdopen.model.HdActivitySpreadStatLevelVO>>
      * @author CAJR
-     * @date 2021/9/13 
-     */ 
+     * @date 2021/9/13
+     */
     Result<List<HdActivitySpreadStatLevelVO>> getActivitySpreadStatLevel(int aid, int activityId);
 
-    /** 
+    /**
+     * 获取活动用户分析传播数据
      *
-     * @param aid
- * @param activityId
+     * @param aid        凡科账号id
+     * @param activityId 活动id
      * @return com.fkw.hdopen.model.Result<com.fkw.hdopen.model.HdActivityUserSpreadStatVO>
      * @author CAJR
-     * @date 2021/9/13 
-     */ 
+     * @date 2021/9/13
+     */
     Result<HdActivityUserSpreadStatVO> getActivityUserSpreadStat(int aid, int activityId);
 }

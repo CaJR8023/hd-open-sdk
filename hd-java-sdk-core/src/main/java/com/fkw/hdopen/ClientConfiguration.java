@@ -12,8 +12,11 @@ import java.util.concurrent.TimeUnit;
  * @date 2021/7/26 10:42
  */
 public class ClientConfiguration {
-    public static final String DEFAULT_CLIENT_AUTH_CNAME = "open-hd.fkw.com";
-    public static final String DEFAULT_RESOURCE_CNAME = "openauth-hd.fkw.com";
+    /**
+     * 默认配置
+     */
+    public static final String DEFAULT_CLIENT_AUTH_CNAME = "openauth-hd.fkw.com";
+    public static final String DEFAULT_RESOURCE_CNAME = "open-hd.fkw.com";
     public static final String DEFAULT_AUTH_SCOPE = "all";
     public static final TimeUnit DEFAULT_TIME_UNIT = TimeUnit.MILLISECONDS;
     public static final int DEFAULT_MAX_RETRIES = 3;
@@ -112,6 +115,11 @@ public class ClientConfiguration {
      */
     protected boolean crcCheckEnabled;
 
+    /**
+     * 默认配置
+     *
+     * @date 2021/9/23
+     */
     public ClientConfiguration() {
         this.clientAuthCname = DEFAULT_CLIENT_AUTH_CNAME;
         this.hdResourceCname = DEFAULT_RESOURCE_CNAME;
