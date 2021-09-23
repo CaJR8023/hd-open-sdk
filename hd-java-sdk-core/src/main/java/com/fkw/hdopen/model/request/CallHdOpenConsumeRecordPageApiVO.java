@@ -9,20 +9,38 @@ import com.fasterxml.jackson.annotation.JsonInclude;
  */
 public class CallHdOpenConsumeRecordPageApiVO {
 
+    /**
+     * 凡科账号id
+     */
     private Integer aid;
 
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private Long startTime;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private Long endTime;
-
+    /**
+     * 活动id
+     */
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Integer activityId;
 
+    /**
+     * 开始时间
+     */
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Long startTime;
+
+    /**
+     * 结束时间
+     */
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Long endTime;
+
+    /**
+     * 页数
+     */
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Integer pageNo;
 
+    /**
+     * 每一页数量
+     */
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Integer pageSize;
 

@@ -7,6 +7,7 @@ import com.fkw.hdopen.client.ServiceClient;
 import com.fkw.hdopen.comm.HttpRequestUtils;
 import com.fkw.hdopen.comm.RSAUtils;
 import com.fkw.hdopen.comm.ResourceUris;
+import com.fkw.hdopen.comm.StringUtils;
 import com.fkw.hdopen.exception.DecryptDataFailException;
 import com.fkw.hdopen.exception.VerifySignFailException;
 import com.fkw.hdopen.model.Result;
@@ -39,6 +40,9 @@ public class OpenSecurityOperation extends Operation implements IOpenSecurityOpe
 
     @Override
     public String decryptByRsaPublicKey(String publicKey, String sign, String encryptedData) {
+        if (StringUtils.isBlank(encryptedData)) {
+            return null;
+        }
         String decryptedData;
         try {
             sign = URLDecoder.decode(sign, StandardCharsets.UTF_8.name()).replace(" ", "+");

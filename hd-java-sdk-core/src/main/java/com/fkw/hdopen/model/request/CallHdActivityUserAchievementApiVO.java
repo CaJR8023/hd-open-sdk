@@ -6,6 +6,7 @@ package com.fkw.hdopen.model.request;
  * @date 2021/9/10 14:00
  */
 public class CallHdActivityUserAchievementApiVO {
+
     /**
      * aid
      */

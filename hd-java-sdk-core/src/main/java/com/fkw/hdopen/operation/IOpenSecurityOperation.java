@@ -12,7 +12,7 @@ public interface IOpenSecurityOperation {
     /**
      * 获取公钥
      *
-     * @return com.fkw.hdopen.model.Result<java.lang.String>
+     * @return com.fkw.hdopen.model.Result<java.lang.String> 公钥数据
      * @author CAJR
      * @date 2021/9/18
      */

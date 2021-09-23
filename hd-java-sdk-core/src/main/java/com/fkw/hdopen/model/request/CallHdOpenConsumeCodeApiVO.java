@@ -1,5 +1,7 @@
 package com.fkw.hdopen.model.request;
 
+import com.fkw.hdopen.comm.JsonUtils;
+
 /**
  * @author CAJR
  * @Description 核销兑奖码VO
@@ -7,16 +9,29 @@ package com.fkw.hdopen.model.request;
  */
 public class CallHdOpenConsumeCodeApiVO {
 
+    /**
+     * 凡科账号id
+     */
     private Integer aid;
 
+    /**
+     * 活动id
+     */
     private Integer activityId;
 
+    /**
+     * c端活动用户id
+     */
     private Integer activityUserId;
 
-    /** 兑奖码 */
+    /**
+     * 兑奖码
+     */
     private String code;
 
-    /** 备注*/
+    /**
+     * 备注
+     */
     private String note;
 
     public Integer getAid() {
@@ -62,5 +77,10 @@ public class CallHdOpenConsumeCodeApiVO {
     public CallHdOpenConsumeCodeApiVO setNote(String note) {
         this.note = note;
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return JsonUtils.toString(this);
     }
 }

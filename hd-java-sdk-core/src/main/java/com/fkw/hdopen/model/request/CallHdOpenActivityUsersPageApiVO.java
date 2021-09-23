@@ -9,8 +9,14 @@ import com.fasterxml.jackson.annotation.JsonInclude;
  */
 public class CallHdOpenActivityUsersPageApiVO {
 
+    /**
+     * 凡科账号id
+     */
     private Integer aid;
 
+    /**
+     * 活动id
+     */
     private Integer activityId;
 
     /**
@@ -19,9 +25,15 @@ public class CallHdOpenActivityUsersPageApiVO {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Integer level;
 
+    /**
+     * 页数
+     */
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Integer pageNo;
 
+    /**
+     * 每一页的数量
+     */
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Integer pageSize;
 
