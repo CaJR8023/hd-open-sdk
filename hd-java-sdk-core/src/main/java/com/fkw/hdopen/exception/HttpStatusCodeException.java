@@ -6,9 +6,10 @@ import okhttp3.Headers;
 import java.nio.charset.Charset;
 
 /**
+ * http status code exception
+ *
  * @author CAJR
- * @Description http status code exception
- * @date 2021/9/9 16:48
+ * @version 1.0.0
  */
 public class HttpStatusCodeException extends PartnerClientResponseException {
     private final HttpStatus statusCode;

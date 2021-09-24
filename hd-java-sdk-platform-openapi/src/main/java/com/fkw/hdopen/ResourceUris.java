@@ -1,9 +1,10 @@
 package com.fkw.hdopen;
 
 /**
+ * hd open resource api
+ *
  * @author CAJR
- * @Description hd open resource api
- * @date 2021/9/13 10:25
+ * @version 1.0.0
  */
 public enum ResourceUris {
     /**

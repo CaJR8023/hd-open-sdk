@@ -7,9 +7,10 @@ import okhttp3.Authenticator;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * 客户端配置
+ *
  * @author CAJR
- * @Description 客户端配置
- * @date 2021/7/26 10:42
+ * @version 1.0.0
  */
 public class ClientConfiguration {
     /**
@@ -118,7 +119,6 @@ public class ClientConfiguration {
     /**
      * 默认配置
      *
-     * @date 2021/9/23
      */
     public ClientConfiguration() {
         this.clientAuthCname = DEFAULT_CLIENT_AUTH_CNAME;

@@ -1,6 +1,5 @@
 package com.fkw.hdopen.comm;
 
-import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -16,9 +15,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * JACKSON JSON Utils
+ *
  * @author CAJR
- * @Description JACKSON JSON Utils
- * @date 2021/8/25 16:03
+ * @version 1.0.0
  */
 public class JsonUtils {
     private static final Log log = LogFactory.getLog(JsonUtils.class);

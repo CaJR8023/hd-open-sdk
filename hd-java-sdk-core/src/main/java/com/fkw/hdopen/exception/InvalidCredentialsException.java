@@ -1,9 +1,10 @@
 package com.fkw.hdopen.exception;
 
 /**
+ * 无效证书异常
+ *
  * @author CAJR
- * @Description 无效证书异常
- * @date 2021/7/26 11:54
+ * @version 1.0.0
  */
 public class InvalidCredentialsException extends RuntimeException {
     private static final long serialVersionUID = 1L;

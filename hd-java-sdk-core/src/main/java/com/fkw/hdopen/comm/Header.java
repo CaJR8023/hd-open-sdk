@@ -1,9 +1,10 @@
 package com.fkw.hdopen.comm;
 
 /**
+ * 请求头枚举
+ *
  * @author CAJR
- * @Description 请求头枚举
- * @date 2021/7/27 12:16
+ * @version 1.0.0
  */
 public enum Header {
     /**

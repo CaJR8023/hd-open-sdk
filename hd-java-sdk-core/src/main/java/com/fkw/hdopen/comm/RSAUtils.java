@@ -12,9 +12,9 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 
 /**
+ * RSA 非对称加密
  * @author CAJR
- * @Description RSA 非对称加密
- * @date 2021/9/18 14:32
+ * @version 1.0.0
  */
 public class RSAUtils {
 
@@ -41,7 +41,7 @@ public class RSAUtils {
      * @param sign          签名
      * @return boolean true:验证通过 false:验证不通过
      * @author CAJR
-     * @date 2021/9/20
+     * @throws Exception e
      */
     public static boolean verify(String publicKey, String encryptedData, String sign) throws Exception {
         if (StringUtils.isBlank(publicKey)) {
@@ -58,10 +58,9 @@ public class RSAUtils {
      * @param sign     签名
      * @return boolean 是否校验通过
      * @author CAJR
-     * @date 2021/9/18
+     * @throws Exception e
      */
-    public static boolean verify(byte[] data, byte[] keyBytes, byte[] sign)
-            throws NoSuchAlgorithmException, InvalidKeySpecException, InvalidKeyException, SignatureException {
+    public static boolean verify(byte[] data, byte[] keyBytes, byte[] sign) throws Exception {
         X509EncodedKeySpec keySpec = new X509EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
         PublicKey publicK = keyFactory.generatePublic(keySpec);
@@ -78,7 +77,7 @@ public class RSAUtils {
      * @param encryptedData 密文
      * @return java.lang.String 明文
      * @author CAJR
-     * @date 2021/9/20
+     * @throws Exception e
      */
     public static String decryptByPublicKey(String publicKey, String encryptedData) throws Exception {
         return new String(decryptByPublicKey(Base64.decode(encryptedData), Base64.decode(publicKey)));
@@ -105,10 +104,9 @@ public class RSAUtils {
      * @param dataBytes  解密数据(Base64)
      * @return byte[] 明文
      * @author CAJR
-     * @date 2021/9/20
+     * @throws Exception e
      */
-    private static byte[] cipherDoFinal(Cipher cipher, byte[] dataBytes)
-            throws IOException, BadPaddingException, IllegalBlockSizeException {
+    private static byte[] cipherDoFinal(Cipher cipher, byte[] dataBytes) throws Exception {
         if (RSAUtils.MAX_DECRYPT_BLOCK <= 0) {
             throw new RuntimeException("Segment size must be greater than 0");
         }

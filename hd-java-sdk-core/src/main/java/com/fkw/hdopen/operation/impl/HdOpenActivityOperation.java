@@ -18,9 +18,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author faisco
- * @Description 互动活动开放业务接口 impl
- * @date 2021/9/9 13:40
+ * 互动活动开放业务接口 impl
+ *
+ * @author CAJR
+ * @version 1.0.0
  */
 public class HdOpenActivityOperation extends Operation implements IHdOpenActivityOperation {
 

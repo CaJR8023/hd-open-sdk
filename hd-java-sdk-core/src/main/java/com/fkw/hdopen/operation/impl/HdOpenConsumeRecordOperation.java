@@ -17,9 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author faisco
- * @Description 互动核销记录开放业务接口
- * @date 2021/9/9 13:44
+ * 互动核销记录开放业务接口
+ *
+ * @author CAJR
+ * @version 1.0.0
  */
 public class HdOpenConsumeRecordOperation extends Operation implements IHdOpenConsumeRecordOperation {
 

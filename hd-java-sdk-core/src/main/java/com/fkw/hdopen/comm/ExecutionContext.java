@@ -10,9 +10,10 @@ import java.util.Base64;
 import java.util.Objects;
 
 /**
+ * 请求执行上下文, 存储token
+ *
  * @author CAJR
- * @Description 请求执行上下文, 存储token
- * @date 2021/7/26 17:33
+ * @version 1.0.0
  */
 public class ExecutionContext {
     private Credentials credentials;
@@ -23,12 +24,12 @@ public class ExecutionContext {
     }
 
     public void init(ClientConfiguration configuration, OkHttpClient client) {
-        if (context == null){
+        if (context == null) {
             synchronized (ExecutionContext.class) {
                 if (context == null) {
                     initTokenContext(configuration, client);
                 } else {
-                    if (context.getTokenExpireTime() <= System.currentTimeMillis()){
+                    if (context.getTokenExpireTime() <= System.currentTimeMillis()) {
                         refreshTokenContext(configuration, client);
                     }
                 }

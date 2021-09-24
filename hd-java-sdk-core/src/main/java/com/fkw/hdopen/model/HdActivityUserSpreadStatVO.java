@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 活动用户行为传播数据VO
+ *
  * @author CAJR
- * @Description 活动用户行为传播数据VO
- * @date 2021/9/10 11:27
+ * @version 1.0.0
  */
 public class HdActivityUserSpreadStatVO {
 
@@ -17,7 +18,7 @@ public class HdActivityUserSpreadStatVO {
     private List<RegionData> provinceTop10;
 
 
-    public static class  RegionData{
+    public static class RegionData {
         private Integer joinNum;
         private Integer view;
         private String keyInfo;
@@ -60,11 +61,11 @@ public class HdActivityUserSpreadStatVO {
         }
     }
 
-    public void initData(){
+    public void initData() {
         int initSize = 10;
         this.setCityTop10(new ArrayList<>());
         this.setProvinceTop10(new ArrayList<>());
-        while (cityTop10.size() < initSize){
+        while (cityTop10.size() < initSize) {
             this.getCityTop10().add(new RegionData().setKeyInfo("无").setCode(0).setView(0).setJoinNum(0));
             this.getProvinceTop10().add(new RegionData().setKeyInfo("无").setCode(0).setView(0).setJoinNum(0));
         }

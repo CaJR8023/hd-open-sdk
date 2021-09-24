@@ -20,9 +20,10 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 
 /**
+ * 开放安全操作接口实现类
+ *
  * @author CAJR
- * @Description 开放安全操作接口实现类
- * @date 2021/9/16 10:44
+ * @version 1.0.0
  */
 public class OpenSecurityOperation extends Operation implements IOpenSecurityOperation {
     public OpenSecurityOperation(URI endpoint, ServiceClient client, CredentialsProvider credentialsProvider) {

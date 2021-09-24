@@ -1,51 +1,80 @@
 package com.fkw.hdopen.model;
 
 /**
+ * 红包记录VO
+ *
  * @author CAJR
- * @Description 红包记录VO
- * @date 2021/9/10 17:58
+ * @version 1.0.0
  */
 public class HdRedPacketVO {
-    /**凡科账号id */
+    /**
+     * 凡科账号id
+     */
     private Integer aid;
 
-    /**活动id */
+    /**
+     * 活动id
+     */
     private Integer activityId;
 
-    /** 奖品名称*/
+    /**
+     * 奖品名称
+     */
     private String awardName;
 
-    /**活动id */
+    /**
+     * 活动id
+     */
     private String activityName;
 
-    /**凡科公众号openId */
+    /**
+     * 凡科公众号openId
+     */
     private String faiOpenId;
 
-    /**兑奖码 */
+    /**
+     * 兑奖码
+     */
     private String code;
 
-    /**奖品等级 */
+    /**
+     * 奖品等级
+     */
     private String level;
 
-    /**红包金额（单位：分） */
+    /**
+     * 红包金额（单位：分）
+     */
     private Integer money;
 
-    /**活动用户id */
+    /**
+     * 活动用户id
+     */
     private Integer activityUserId;
 
-    /**活动用户信息 */
+    /**
+     * 活动用户信息
+     */
     private HdActivityUserInfoVO activityUserInfo;
 
-    /** 派发红包返回码*/
+    /**
+     * 派发红包返回码
+     */
     private String resultCode;
 
-    /**备注 */
+    /**
+     * 备注
+     */
     private String note;
 
-    /** 红包状态*/
+    /**
+     * 红包状态
+     */
     private Integer status;
 
-    /**创建时间 */
+    /**
+     * 创建时间
+     */
     private Long createTime;
 
     public Integer getAid() {

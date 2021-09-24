@@ -7,8 +7,7 @@ import java.util.Date;
 
 /**
  * @author CAJR
- * @Description
- * @date 2021/9/13 10:20
+ * @version 1.0.0
  */
 public class CallHdOpenLoginApiVO {
 

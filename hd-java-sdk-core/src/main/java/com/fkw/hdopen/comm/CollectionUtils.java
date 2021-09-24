@@ -4,9 +4,10 @@ import java.util.Collection;
 import java.util.Map;
 
 /**
+ * CollectionUtils
+ *
  * @author CAJR
- * @Description CollectionUtils
- * @date 2021/9/9 18:44
+ * @version 1.0.0
  */
 public class CollectionUtils {
     public static boolean isEmpty(Collection<?> collection) {

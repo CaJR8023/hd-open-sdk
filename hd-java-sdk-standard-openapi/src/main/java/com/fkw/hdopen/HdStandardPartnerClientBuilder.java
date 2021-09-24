@@ -4,11 +4,12 @@ import com.fkw.hdopen.auth.CredentialsProvider;
 import com.fkw.hdopen.auth.DefaultCredentialsProvider;
 
 /**
+ * standard partner client
+ *
  * @author CAJR
- * @Description standard partner client
- * @date 2021/9/9 13:55
+ * @version 1.0.0
  */
-public class HdStandardPartnerClientBuilder implements ClientBuilder{
+public class HdStandardPartnerClientBuilder implements ClientBuilder {
     @Override
     public HdStandardPartnerClient build(String clientId, String clientSecret) {
         return new HdStandardPartnerClient(getDefaultCredentialProvider(clientId, clientSecret), null);

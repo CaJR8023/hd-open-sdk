@@ -5,9 +5,10 @@ import com.fkw.hdopen.comm.JsonUtils;
 import java.util.List;
 
 /**
+ * page result
+ *
  * @author CAJR
- * @Description page result
- * @date 2021/9/9 17:55
+ * @version 1.0.0
  */
 public class PageResult<T> {
     private int code;

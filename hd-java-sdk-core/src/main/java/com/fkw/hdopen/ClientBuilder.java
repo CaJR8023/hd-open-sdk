@@ -4,9 +4,10 @@ package com.fkw.hdopen;
 import com.fkw.hdopen.auth.CredentialsProvider;
 
 /**
+ * 客户端生成接口类
+ *
  * @author CAJR
- * @Description 客户端生成接口类
- * @date 2021/7/26 11:58
+ * @version 1.0.0
  */
 public interface ClientBuilder {
 

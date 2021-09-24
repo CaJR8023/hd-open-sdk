@@ -18,9 +18,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author faisco
- * @Description 互动活动传播数据开放业务接口
- * @date 2021/9/9 13:40
+ * 互动活动传播数据开放业务接口
+ *
+ * @author CAJR
+ * @version 1.0.0
  */
 public class HdOpenActivitySpreadStatOperation extends Operation implements IHdOpenActivitySpreadStatOperation {
 

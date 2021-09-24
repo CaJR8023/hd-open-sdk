@@ -6,11 +6,12 @@ import okhttp3.Headers;
 import java.nio.charset.Charset;
 
 /**
+ * http server error(5xx)
+ *
  * @author CAJR
- * @Description http server error(5xx)
- * @date 2021/9/9 16:45
+ * @version 1.0.0
  */
-public class HttpServerErrorException extends HttpStatusCodeException{
+public class HttpServerErrorException extends HttpStatusCodeException {
 
     public HttpServerErrorException(HttpStatus statusCode) {
         super(statusCode);

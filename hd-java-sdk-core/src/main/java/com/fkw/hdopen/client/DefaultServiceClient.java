@@ -13,9 +13,10 @@ import java.net.Proxy.Type;
 import java.net.SocketAddress;
 
 /**
+ * 业务客户端
+ *
  * @author CAJR
- * @Description 业务客户端
- * @date 2021/7/26 11:58
+ * @version 1.0.0
  */
 public class DefaultServiceClient extends ServiceClient {
     protected OkHttpClient okHttpClient;

@@ -1,9 +1,10 @@
 package com.fkw.hdopen.comm;
 
 /**
+ * 字符串工具类
+ *
  * @author CAJR
- * @Description 字符串工具类
- * @date 2021/9/9 18:41
+ * @version 1.0.0
  */
 public class StringUtils {
     /**
@@ -20,7 +21,7 @@ public class StringUtils {
      * StringUtils.isNoneBlank("foo", "bar")     = true
      * </pre>
      *
-     * @param css  the CharSequences to check, may be null or empty
+     * @param css the CharSequences to check, may be null or empty
      * @return {@code true} if none of the CharSequences are blank or null or whitespace only
      * @since 3.2
      */
@@ -42,7 +43,7 @@ public class StringUtils {
      * StringUtils.isAnyBlank("foo", "bar")     = false
      * </pre>
      *
-     * @param css  the CharSequences to check, may be null or empty
+     * @param css the CharSequences to check, may be null or empty
      * @return {@code true} if any of the CharSequences are blank or null or whitespace only
      * @since 3.2
      */
@@ -50,7 +51,7 @@ public class StringUtils {
         if (isEmpty(css)) {
             return true;
         }
-        for (final CharSequence cs : css){
+        for (final CharSequence cs : css) {
             if (isBlank(cs)) {
                 return true;
             }
@@ -73,7 +74,7 @@ public class StringUtils {
      * StringUtils.isBlank("  bob  ") = false
      * </pre>
      *
-     * @param cs  the CharSequence to check, may be null
+     * @param cs the CharSequence to check, may be null
      * @return {@code true} if the CharSequence is null, empty or whitespace
      * @since 2.0
      * @since 3.0 Changed signature from isBlank(String) to isBlank(CharSequence)

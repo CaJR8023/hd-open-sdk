@@ -1,9 +1,10 @@
 package com.fkw.hdopen.model;
 
 /**
+ * HdActivityUserInfoVO
+ *
  * @author CAJR
- * @Description TODO
- * @date 2021/9/10 14:07
+ * @version 1.0.0
  */
 public class HdActivityUserInfoVO {
 

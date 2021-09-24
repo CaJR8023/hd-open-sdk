@@ -1,9 +1,10 @@
 package com.fkw.hdopen.auth;
 
 /**
+ * 客户端凭证
+ *
  * @author CAJR
- * @Description 客户端凭证
- * @date 2021/7/26 11:27
+ * @version 1.0.0
  */
 public interface Credentials {
 

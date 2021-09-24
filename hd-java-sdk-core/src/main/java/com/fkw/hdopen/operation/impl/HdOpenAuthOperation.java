@@ -7,9 +7,10 @@ import com.fkw.hdopen.client.ServiceClient;
 import java.net.URI;
 
 /**
+ * 互动开放授权认证操作
+ *
  * @author CAJR
- * @Description 互动开放授权认证操作
- * @date 2021/7/28 11:19
+ * @version 1.0.0
  */
 public class HdOpenAuthOperation extends Operation {
 

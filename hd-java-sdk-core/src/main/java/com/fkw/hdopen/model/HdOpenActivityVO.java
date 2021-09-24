@@ -1,9 +1,9 @@
 package com.fkw.hdopen.model;
 
 /**
+ *  互动活动VO
  * @author CAJR
- * @Description 互动活动VO
- * @date 2021/8/4 11:46
+ * @version 1.0.0
  */
 public class HdOpenActivityVO {
     /**

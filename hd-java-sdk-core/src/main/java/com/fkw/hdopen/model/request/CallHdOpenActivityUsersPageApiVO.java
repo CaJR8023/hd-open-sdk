@@ -3,9 +3,10 @@ package com.fkw.hdopen.model.request;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
+ * 请求凡科互动开放分页活动接口条件vo
+ *
  * @author CAJR
- * @Description 请求凡科互动开放分页活动接口条件vo
- * @date 2021/9/10 17:20
+ * @version 1.0.0
  */
 public class CallHdOpenActivityUsersPageApiVO {
 

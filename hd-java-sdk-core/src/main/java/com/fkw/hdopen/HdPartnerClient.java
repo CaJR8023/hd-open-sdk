@@ -8,9 +8,10 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 /**
+ * 互动合作方客户端
+ *
  * @author CAJR
- * @Description 互动合作方客户端
- * @date 2021/7/26 10:21
+ * @version 1.0.0
  */
 public abstract class HdPartnerClient implements HdPartner {
 

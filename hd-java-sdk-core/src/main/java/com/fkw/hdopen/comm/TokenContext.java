@@ -4,9 +4,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
+ * 令牌
+ *
  * @author CAJR
- * @Description 令牌
- * @date 2021/7/27 13:47
+ * @version 1.0.0
  */
 public class TokenContext {
 

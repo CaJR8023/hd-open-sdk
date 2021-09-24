@@ -3,9 +3,10 @@ package com.fkw.hdopen.model.request;
 import com.fkw.hdopen.comm.JsonUtils;
 
 /**
+ * 核销兑奖码VO
+ *
  * @author CAJR
- * @Description 核销兑奖码VO
- * @date 2021/9/10 17:54
+ * @version 1.0.0
  */
 public class CallHdOpenConsumeCodeApiVO {
 

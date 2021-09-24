@@ -18,9 +18,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 互动开放账号操作接口类
+ *
  * @author CAJR
- * @Description 互动开放账号操作接口类
- * @date 2021/9/13 9:43
+ * @version 1.0.0
  */
 public class HdOpenAccountOperation extends Operation implements IHdOpenAccountOperation {
     public HdOpenAccountOperation(URI endpoint, ServiceClient client, CredentialsProvider credentialsProvider) {

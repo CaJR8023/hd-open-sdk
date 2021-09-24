@@ -18,9 +18,10 @@ import java.net.URI;
 import java.util.Objects;
 
 /**
+ * 具体操作
+ *
  * @author CAJR
- * @Description 具体操作
- * @date 2021/7/26 14:11
+ * @version 1.0.0
  */
 public abstract class Operation {
     protected volatile URI endpoint;
@@ -40,7 +41,6 @@ public abstract class Operation {
      * @param type    返回泛型
      * @return T 泛型
      * @author CAJR
-     * @date 2021/7/27
      */
     protected <T> T doOperation(Request request, TypeReference<T> type) {
         ExecutionContext context = createDefaultContext();

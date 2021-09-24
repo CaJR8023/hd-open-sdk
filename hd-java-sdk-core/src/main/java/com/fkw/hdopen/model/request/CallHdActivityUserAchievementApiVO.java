@@ -1,9 +1,10 @@
 package com.fkw.hdopen.model.request;
 
 /**
+ * 活动用户(c端用户)成绩更新VO
+ *
  * @author CAJR
- * @Description 活动用户(c端用户)成绩更新VO
- * @date 2021/9/10 14:00
+ * @version 1.0.0
  */
 public class CallHdActivityUserAchievementApiVO {
 

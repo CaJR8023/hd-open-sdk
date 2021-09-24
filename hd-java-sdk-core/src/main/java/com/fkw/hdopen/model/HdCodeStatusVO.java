@@ -1,9 +1,10 @@
 package com.fkw.hdopen.model;
 
 /**
+ * 兑奖码状态记录VO
+ *
  * @author CAJR
- * @Description 兑奖码状态记录VO
- * @date 2021/9/10 17:32
+ * @version 1.0.0
  */
 public class HdCodeStatusVO {
 

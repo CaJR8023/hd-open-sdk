@@ -7,9 +7,10 @@ import com.fkw.hdopen.model.Result;
 import java.util.List;
 
 /**
+ * 互动活动传播数据开放业务接口
+ *
  * @author CAJR
- * @Description 互动活动传播数据开放业务接口
- * @date 2021/9/9 17:46
+ * @version 1.0.0
  */
 public interface IHdOpenActivitySpreadStatOperation {
 
@@ -18,9 +19,8 @@ public interface IHdOpenActivitySpreadStatOperation {
      *
      * @param aid        凡科账号id
      * @param activityId 活动id
-     * @return com.fkw.hdopen.model.Result<java.util.List < com.fkw.hdopen.model.HdActivitySpreadStatLevelVO>>
+     * @return com.fkw.hdopen.model.Result
      * @author CAJR
-     * @date 2021/9/13
      */
     Result<List<HdActivitySpreadStatLevelVO>> getActivitySpreadStatLevel(int aid, int activityId);
 
@@ -29,9 +29,8 @@ public interface IHdOpenActivitySpreadStatOperation {
      *
      * @param aid        凡科账号id
      * @param activityId 活动id
-     * @return com.fkw.hdopen.model.Result<com.fkw.hdopen.model.HdActivityUserSpreadStatVO>
+     * @return com.fkw.hdopen.model.Result
      * @author CAJR
-     * @date 2021/9/13
      */
     Result<HdActivityUserSpreadStatVO> getActivityUserSpreadStat(int aid, int activityId);
 }

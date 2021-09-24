@@ -8,9 +8,10 @@ import okhttp3.Response;
 import java.io.IOException;
 
 /**
+ * 业务客户端
+ *
  * @author CAJR
- * @Description 业务客户端
- * @date 2021/7/26 11:55
+ * @version 1.0.0
  */
 public abstract class ServiceClient {
     protected ClientConfiguration configuration;
@@ -29,9 +30,8 @@ public abstract class ServiceClient {
      * @param request 请求
      * @param context 请求上下文
      * @return okhttp3.Response
-     * @author CAJR
-     * @date 2021/7/27
      * @throws IOException e
+     * @author CAJR
      */
     public abstract Response sendRequest(Request request, ExecutionContext context) throws IOException;
 }

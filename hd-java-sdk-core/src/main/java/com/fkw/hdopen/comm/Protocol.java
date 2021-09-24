@@ -1,9 +1,10 @@
 package com.fkw.hdopen.comm;
 
 /**
+ * http协议
+ *
  * @author CAJR
- * @Description 协议
- * @date 2021/7/26 15:16
+ * @version 1.0.0
  */
 public enum Protocol {
     /**

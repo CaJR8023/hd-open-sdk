@@ -1,9 +1,10 @@
 package com.fkw.hdopen.comm;
 
 /**
+ * oauth2 常数
+ *
  * @author CAJR
- * @Description oauth2 常数
- * @date 2021/7/27 13:56
+ * @version 1.0.0
  */
 public enum Oauth2Param {
     /**

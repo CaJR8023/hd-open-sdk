@@ -3,9 +3,10 @@ package com.fkw.hdopen.auth;
 import com.fkw.hdopen.exception.InvalidCredentialsException;
 
 /**
+ * 默认客户端凭证提供者
+ *
  * @author CAJR
- * @Description 默认客户端凭证提供者
- * @date 2021/7/26 11:53
+ * @version 1.0.0
  */
 public class DefaultCredentialsProvider implements CredentialsProvider {
 

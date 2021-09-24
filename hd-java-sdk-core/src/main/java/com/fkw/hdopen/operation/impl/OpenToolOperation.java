@@ -15,9 +15,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 互动开放工具操作接口实现类
+ *
  * @author CAJR
- * @Description 互动开放工具操作接口实现类
- * @date 2021/9/16 10:56
+ * @version 1.0.0
  */
 public class OpenToolOperation extends Operation implements IOpenToolOperation {
 

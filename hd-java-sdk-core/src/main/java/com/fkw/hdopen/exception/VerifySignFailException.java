@@ -1,11 +1,12 @@
 package com.fkw.hdopen.exception;
 
 /**
+ * 校验签名异常
+ *
  * @author CAJR
- * @Description 校验签名异常
- * @date 2021/9/18 15:12
+ * @version 1.0.0
  */
-public class VerifySignFailException extends OperationException{
+public class VerifySignFailException extends OperationException {
 
     private static final long serialVersionUID = 1L;
 

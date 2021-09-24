@@ -4,9 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * http method
+ *
  * @author CAJR
- * @Description http method
- * @date 2021/9/9 18:26
+ * @version 1.0.0
  */
 public enum HttpMethod {
     /**
@@ -36,10 +37,8 @@ public enum HttpMethod {
 
     static {
         HttpMethod[] var0 = values();
-        int var1 = var0.length;
 
-        for (int var2 = 0; var2 < var1; ++var2) {
-            HttpMethod httpMethod = var0[var2];
+        for (HttpMethod httpMethod : var0) {
             MAPPINGS.put(httpMethod.name(), httpMethod);
         }
 

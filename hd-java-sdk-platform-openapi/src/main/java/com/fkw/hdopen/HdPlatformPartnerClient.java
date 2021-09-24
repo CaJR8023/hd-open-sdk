@@ -9,9 +9,10 @@ import com.fkw.hdopen.operation.impl.*;
 import java.util.List;
 
 /**
+ * 平台类合作方客户端
+ *
  * @author CAJR
- * @Description 平台类合作方客户端
- * @date 2021/9/9 14:00
+ * @version 1.0.0
  */
 public class HdPlatformPartnerClient extends HdPartnerClient {
 

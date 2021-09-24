@@ -1,9 +1,10 @@
 package com.fkw.hdopen.model;
 
 /**
+ * HdConsumeRecordVO
+ *
  * @author CAJR
- * @Description TODO
- * @date 2021/9/10 17:30
+ * @version 1.0.0
  */
 public class HdConsumeRecordVO {
 

@@ -1,9 +1,10 @@
 package com.fkw.hdopen.model;
 
 /**
+ * 返回给合作方玩家奖项数据vo
+ *
  * @author CAJR
- * @Description 返回给合作方玩家奖项数据vo
- * @date 2021/9/10 14:03
+ * @version 1.0.0
  */
 public class HdActivityUserAwardInfoVO {
 

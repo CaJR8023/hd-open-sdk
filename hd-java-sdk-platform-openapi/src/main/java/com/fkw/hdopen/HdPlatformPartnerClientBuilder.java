@@ -4,11 +4,12 @@ import com.fkw.hdopen.auth.CredentialsProvider;
 import com.fkw.hdopen.auth.DefaultCredentialsProvider;
 
 /**
+ * platform partner client builder
+ *
  * @author CAJR
- * @Description platform partner client builder
- * @date 2021/9/9 13:55
+ * @version 1.0.0
  */
-public class HdPlatformPartnerClientBuilder implements ClientBuilder{
+public class HdPlatformPartnerClientBuilder implements ClientBuilder {
 
     @Override
     public HdPlatformPartnerClient build(String clientId, String clientSecret) {

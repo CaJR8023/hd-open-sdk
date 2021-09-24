@@ -3,9 +3,10 @@ package com.fkw.hdopen.model;
 import java.util.List;
 
 /**
+ * 活动玩家数据VO
+ *
  * @author CAJR
- * @Description 活动玩家数据VO
- * @date 2021/9/10 14:02
+ * @version 1.0.0
  */
 public class HdActivityUserVO {
 

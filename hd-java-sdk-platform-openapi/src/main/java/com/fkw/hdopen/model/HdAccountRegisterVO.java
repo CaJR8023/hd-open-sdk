@@ -5,9 +5,10 @@ import com.fkw.hdopen.comm.JsonUtils;
 import java.util.Date;
 
 /**
+ * 互动开放账号注册VO
+ *
  * @author CAJR
- * @Description 互动开放账号注册VO
- * @date 2021/9/13 10:08
+ * @version 1.0.0
  */
 public class HdAccountRegisterVO {
     /**

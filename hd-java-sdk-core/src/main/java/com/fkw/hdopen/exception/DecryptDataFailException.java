@@ -1,11 +1,12 @@
 package com.fkw.hdopen.exception;
 
 /**
+ * 解密异常
+ *
  * @author CAJR
- * @Description 解密异常
- * @date 2021/9/18 15:13
+ * @version 1.0.0
  */
-public class DecryptDataFailException extends OperationException{
+public class DecryptDataFailException extends OperationException {
     private static final long serialVersionUID = 1L;
 
     public DecryptDataFailException() {

@@ -6,9 +6,10 @@ import com.fkw.hdopen.model.Result;
 import com.fkw.hdopen.model.request.CallHdOpenActivitiesPageApiVO;
 
 /**
+ * 互动活动开放业务接口
+ *
  * @author CAJR
- * @Description 互动活动开放业务接口
- * @date 2021/9/9 16:28
+ * @version 1.0.0
  */
 public interface IHdOpenActivityOperation {
 
@@ -17,9 +18,8 @@ public interface IHdOpenActivityOperation {
      *
      * @param aid        凡科账号aid
      * @param activityId 活动id
-     * @return com.fkw.hdopen.model.Result<com.fkw.hdopen.model.HdOpenActivityVO>
+     * @return com.fkw.hdopen.model.Result
      * @author CAJR
-     * @date 2021/9/13
      */
     Result<HdOpenActivityVO> getOneHdActivityInfo(int aid, int activityId);
 
@@ -29,9 +29,8 @@ public interface IHdOpenActivityOperation {
      * @param aid      凡科账号aid
      * @param pageNo   第几页
      * @param pageSize 每页的数量
-     * @return com.fkw.hdopen.model.PageResult<com.fkw.hdopen.model.HdOpenActivityVO>
+     * @return com.fkw.hdopen.model.PageResult
      * @author CAJR
-     * @date 2021/9/13
      */
     PageResult<HdOpenActivityVO> getHdActivityInfoByPage(int aid, Integer pageNo, Integer pageSize);
 
@@ -39,9 +38,8 @@ public interface IHdOpenActivityOperation {
      * 分页获取活动列表
      *
      * @param vo 请求凡科互动开放分页活动接口条件vo
-     * @return com.fkw.hdopen.model.PageResult<com.fkw.hdopen.model.HdOpenActivityVO> 互动活动VO
+     * @return com.fkw.hdopen.model.PageResult 互动活动VO
      * @author CAJR
-     * @date 2021/9/13
      */
     PageResult<HdOpenActivityVO> getHdActivityInfoByPage(CallHdOpenActivitiesPageApiVO vo);
 }

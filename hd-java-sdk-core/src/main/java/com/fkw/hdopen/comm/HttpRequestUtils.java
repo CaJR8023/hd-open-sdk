@@ -7,9 +7,10 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
+ * HttpRequestUtils
+ *
  * @author CAJR
- * @Description HttpRequestUtils
- * @date 2021/9/9 18:24
+ * @version 1.0.0
  */
 public class HttpRequestUtils {
 

@@ -8,9 +8,10 @@ import java.nio.charset.Charset;
 import java.util.logging.Logger;
 
 /**
+ * partner client response exception
+ *
  * @author CAJR
- * @Description partner client response exception
- * @date 2021/9/9 16:44
+ * @version 1.0.0
  */
 public class PartnerClientResponseException extends OperationException {
     final static Logger logger = Logger.getLogger(PartnerClientResponseException.class.getSimpleName());

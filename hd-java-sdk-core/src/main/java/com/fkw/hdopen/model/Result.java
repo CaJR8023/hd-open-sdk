@@ -3,9 +3,10 @@ package com.fkw.hdopen.model;
 import com.fkw.hdopen.comm.JsonUtils;
 
 /**
+ * 统一返回
+ *
  * @author CAJR
- * @Description 统一返回
- * @date 2021/7/13 11:11
+ * @version 1.0.0
  */
 public class Result<T> {
     private int code;

@@ -5,9 +5,10 @@ import com.fkw.hdopen.comm.HttpStatus;
 import java.nio.charset.Charset;
 
 /**
+ * http client error (4xx)
+ *
  * @author CAJR
- * @Description http client error (4xx)
- * @date 2021/9/9 16:45
+ * @version 1.0.0
  */
 public class HttpClientErrorException extends HttpStatusCodeException {
 

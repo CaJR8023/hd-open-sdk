@@ -1,9 +1,10 @@
 package com.fkw.hdopen.comm;
 
 /**
+ * http status
+ *
  * @author CAJR
- * @Description http status
- * @date 2021/7/27 14:18
+ * @version 1.0.0
  */
 public enum HttpStatus {
     /**
