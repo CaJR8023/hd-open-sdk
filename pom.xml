@@ -9,6 +9,7 @@
     <packaging>pom</packaging>
     <version>1.0.0</version>
     <description>FAISCO HD Open API SDK for Java</description>
+    <url>https://github.com/CaJR8023/hd-open-sdk</url>
 
     <modules>
         <module>hd-java-sdk-core</module>
@@ -31,14 +32,14 @@
     </issueManagement>
     <developers>
         <developer>
-            <name>CAJR</name>
+            <name>CaJR8023</name>
             <email>1206303099@qq.com</email>
         </developer>
     </developers>
     <scm>
-        <connection>scm:git:https://github.com/CaJR8023/hd-open-sdk.git</connection>
-        <developerConnection>scm:git:git@github.com:CaJR8023/hd-open-sdk.git</developerConnection>
-        <url>https://github.com/CaJR8023/hd-open-sdk</url>
+        <url>https://github.com/CaJR8023/hd-open-sdk/tree/master</url>
+        <connection>scm:git:git://github.com/CaJR8023/hd-open-sdk.git</connection>
+        <developerConnection>scm:git:ssh://github.com:CaJR8023/hd-open-sdk.git</developerConnection>
     </scm>
 
     <properties>
@@ -135,6 +136,7 @@
                         <version>${maven-source-plugin.version}</version>
                         <executions>
                             <execution>
+                                <id>attach-sources</id>
                                 <phase>package</phase>
                                 <goals>
                                     <goal>jar-no-fork</goal>
@@ -154,6 +156,7 @@
                         </configuration>
                         <executions>
                             <execution>
+                                <id>attach-javadocs</id>
                                 <phase>package</phase>
                                 <goals>
                                     <goal>jar</goal>
@@ -168,6 +171,7 @@
                         <version>${maven-gpg-plugin.version}</version>
                         <executions>
                             <execution>
+                                <id>sign-artifacts</id>
                                 <phase>verify</phase>
                                 <goals>
                                     <goal>sign</goal>
