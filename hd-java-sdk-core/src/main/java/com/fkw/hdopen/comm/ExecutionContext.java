@@ -45,7 +45,7 @@ public class ExecutionContext {
                 throw new InvalidCredentialsException("Init oauth token fail: " + response);
             }
             ExecutionContext.context = JsonUtils.toBean(Objects.requireNonNull(response.body()).string(), TokenContext.class);
-            ExecutionContext.context.setTokenExpireTime(ExecutionContext.context.getExpiresIn() + System.currentTimeMillis());
+            ExecutionContext.context.setTokenExpireTime((ExecutionContext.context.getExpiresIn() - configuration.getTokenEarlyExpireTime()) * 1000 + System.currentTimeMillis());
         } catch (IOException e) {
             e.printStackTrace();
             throw new InvalidCredentialsException("Init oauth token fail");
@@ -60,7 +60,7 @@ public class ExecutionContext {
                 throw new InvalidCredentialsException("Refresh oauth token fail response " + response);
             }
             ExecutionContext.context = JsonUtils.toBean(Objects.requireNonNull(response.body()).string(), TokenContext.class);
-            ExecutionContext.context.setTokenExpireTime(ExecutionContext.context.getExpiresIn() + System.currentTimeMillis());
+            ExecutionContext.context.setTokenExpireTime((ExecutionContext.context.getExpiresIn() - configuration.getTokenEarlyExpireTime()) * 1000 + System.currentTimeMillis());
         } catch (Exception e) {
             e.printStackTrace();
             throw new InvalidCredentialsException("Refresh oauth token fail: " + e.getMessage());

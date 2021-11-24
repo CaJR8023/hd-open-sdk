@@ -30,6 +30,7 @@ public class ClientConfiguration {
     public static final long DEFAULT_IDLE_CONNECTION_TIME = 60000L;
     public static final int DEFAULT_REQUEST_TIMEOUT = 300000;
     public static final long DEFAULT_SLOW_REQUESTS_THRESHOLD = 300000L;
+    public static final int EARLY_TOKEN_EXPIRE_TIME = 30;
 
     /**
      * 客户端授权域名
@@ -117,6 +118,11 @@ public class ClientConfiguration {
     protected boolean crcCheckEnabled;
 
     /**
+     * 代理端口
+     */
+    protected int tokenEarlyExpireTime;
+
+    /**
      * 默认配置
      *
      */
@@ -142,6 +148,7 @@ public class ClientConfiguration {
         this.proxyHost = null;
         this.proxyPort = -1;
         this.authenticator = null;
+        this.tokenEarlyExpireTime = EARLY_TOKEN_EXPIRE_TIME;
     }
 
     public String getClientAuthCname() {
@@ -314,5 +321,13 @@ public class ClientConfiguration {
 
     public void setCrcCheckEnabled(boolean crcCheckEnabled) {
         this.crcCheckEnabled = crcCheckEnabled;
+    }
+
+    public int getTokenEarlyExpireTime() {
+        return tokenEarlyExpireTime;
+    }
+
+    public void setTokenEarlyExpireTime(int tokenEarlyExpireTime) {
+        this.tokenEarlyExpireTime = tokenEarlyExpireTime;
     }
 }
