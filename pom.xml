@@ -7,7 +7,7 @@
     <groupId>io.github.cajr8023</groupId>
     <artifactId>hd-open-sdk</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <description>FAISCO HD Open API SDK for Java</description>
     <url>https://github.com/CaJR8023/hd-open-sdk</url>
 

@@ -28,6 +28,38 @@ public class HdActivityUserAwardInfoVO {
      */
     private String awardName;
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public Integer getLevel() {
+        return level;
+    }
+
+    public void setLevel(Integer level) {
+        this.level = level;
+    }
+
+    public Integer getCodeStatus() {
+        return codeStatus;
+    }
+
+    public void setCodeStatus(Integer codeStatus) {
+        this.codeStatus = codeStatus;
+    }
+
+    public String getAwardName() {
+        return awardName;
+    }
+
+    public void setAwardName(String awardName) {
+        this.awardName = awardName;
+    }
+
     @Override
     public String toString() {
         return "HdActivityUserAwardInfoVO{" +
