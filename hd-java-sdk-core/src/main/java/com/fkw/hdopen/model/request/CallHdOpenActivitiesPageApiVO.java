@@ -16,19 +16,19 @@ public class CallHdOpenActivitiesPageApiVO {
     private Integer aid;
 
     /**
-     * 凡科账号id
+     * 活动id
      */
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Integer activityType;
 
     /**
-     * 凡科账号id
+     * 排序字段(正序，只支持数字和时间字段)
      */
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String sort;
 
     /**
-     * 任页数
+     * 页数
      */
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Integer pageNo;
