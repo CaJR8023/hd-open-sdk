@@ -12,6 +12,7 @@ public enum ResourceUris {
      */
     HD_OPEN_REGISTER("/account/hd-register", "POST"),
     HD_OPEN_LOGIN("/account/hd-login", "POST"),
+    HD_OEM_BIND("/account/oem-bind", "POST"),
     ;
     private final String uri;
     private final String method;

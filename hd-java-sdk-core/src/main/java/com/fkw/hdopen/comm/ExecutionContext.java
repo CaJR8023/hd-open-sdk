@@ -16,6 +16,7 @@ import java.util.Objects;
  * @version 1.0.0
  */
 public class ExecutionContext {
+
     private Credentials credentials;
     private volatile static TokenContext context;
 
@@ -28,7 +29,11 @@ public class ExecutionContext {
             synchronized (ExecutionContext.class) {
                 if (context == null) {
                     initTokenContext(configuration, client);
-                } else {
+                }
+            }
+        } else {
+            if (context.getTokenExpireTime() <= System.currentTimeMillis()) {
+                synchronized (ExecutionContext.class) {
                     if (context.getTokenExpireTime() <= System.currentTimeMillis()) {
                         refreshTokenContext(configuration, client);
                     }
@@ -37,22 +42,16 @@ public class ExecutionContext {
         }
     }
 
-    private void initTokenContext(ClientConfiguration configuration, OkHttpClient client) {
-        Request request = getCredentialsRequest(configuration);
-        try {
-            Response response = client.newCall(request).execute();
-            if (!response.isSuccessful()) {
-                throw new InvalidCredentialsException("Init oauth token fail: " + response);
-            }
-            ExecutionContext.context = JsonUtils.toBean(Objects.requireNonNull(response.body()).string(), TokenContext.class);
-            ExecutionContext.context.setTokenExpireTime((ExecutionContext.context.getExpiresIn() - configuration.getTokenEarlyExpireTime()) * 1000 + System.currentTimeMillis());
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new InvalidCredentialsException("Init oauth token fail");
+    public void initTokenContext(ClientConfiguration configuration, OkHttpClient client) {
+        TokenContext tokenContext = getTokenContext(configuration, client);
+        if (tokenContext != null) {
+            ExecutionContext.context = tokenContext;
+            return;
         }
+        throw new InvalidCredentialsException("Init oauth token fail, the token context is empty");
     }
 
-    private void refreshTokenContext(ClientConfiguration configuration, OkHttpClient client) {
+    public void refreshTokenContext(ClientConfiguration configuration, OkHttpClient client) {
         Request request = getRefreshCredentialsRequest(configuration);
         try {
             Response response = client.newCall(request).execute();
@@ -80,6 +79,26 @@ public class ExecutionContext {
                 .build();
     }
 
+    public TokenContext getTokenContext(ClientConfiguration configuration, OkHttpClient client) {
+        TokenContext tokenContext;
+        Request request = getCredentialsRequest(configuration);
+        try {
+            Response response = client.newCall(request).execute();
+            if (!response.isSuccessful()) {
+                throw new InvalidCredentialsException("Init oauth token fail: " + response);
+            }
+            tokenContext = JsonUtils.toBean(Objects.requireNonNull(response.body()).string(), TokenContext.class);
+            if (tokenContext != null) {
+                tokenContext.setTokenExpireTime((tokenContext.getExpiresIn() - configuration.getTokenEarlyExpireTime()) * 1000 + System.currentTimeMillis());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new InvalidCredentialsException("Init oauth token fail");
+        }
+
+        return tokenContext;
+    }
+
     public Request getRefreshCredentialsRequest(ClientConfiguration configuration) {
         String authUri = configuration.getProtocol().toString() + "://" + configuration.getClientAuthCname() + "/oauth/token";
         RequestBody body = new FormBody.Builder()
@@ -97,6 +116,10 @@ public class ExecutionContext {
     private String getBasicHeadSinger() {
         String auth = this.credentials.getClientId() + ":" + this.credentials.getClientSecret();
         return Header.BASIC.toString() + " " + Base64.getEncoder().encodeToString(auth.getBytes());
+    }
+
+    public void clearTokenContext() {
+        ExecutionContext.context = null;
     }
 
     public Credentials getCredentials() {

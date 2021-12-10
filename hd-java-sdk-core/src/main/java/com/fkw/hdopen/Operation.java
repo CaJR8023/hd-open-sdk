@@ -4,12 +4,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fkw.hdopen.auth.CredentialsProvider;
 import com.fkw.hdopen.client.ServiceClient;
 import com.fkw.hdopen.comm.ExecutionContext;
-import com.fkw.hdopen.comm.HttpStatus;
 import com.fkw.hdopen.comm.JsonUtils;
-import com.fkw.hdopen.exception.HttpClientErrorException;
-import com.fkw.hdopen.exception.HttpServerErrorException;
 import com.fkw.hdopen.exception.OperationException;
-import com.fkw.hdopen.exception.UnknownHttpStatusCodeException;
 import okhttp3.Request;
 import okhttp3.Response;
 
@@ -46,7 +42,6 @@ public abstract class Operation {
         ExecutionContext context = createDefaultContext();
         Response response = send(context, request);
         try {
-            checkIsSuccess(response);
             return JsonUtils.nativeRead(Objects.requireNonNull(response.body()).string(), type);
         } catch (IOException e) {
             throw new OperationException("Operation error", e);
@@ -61,26 +56,6 @@ public abstract class Operation {
             throw new OperationException("Client send fail, Caused by: " + e.getMessage());
         }
         return response;
-    }
-
-    protected void checkIsSuccess(Response response) throws IOException {
-        if (response.isSuccessful()) {
-            return;
-        }
-        int code = response.code();
-        if (HttpStatus.valueOf(code).is4xxClientError()) {
-            throw new HttpClientErrorException(HttpStatus.valueOf(code), "client error",
-                    Objects.requireNonNull(response.body()).bytes(),
-                    Objects.requireNonNull(Objects.requireNonNull(response.body()).contentType()).charset());
-        } else if (HttpStatus.valueOf(code).is5xxServerError()) {
-            throw new HttpServerErrorException(HttpStatus.valueOf(code), "server error",
-                    Objects.requireNonNull(response.body()).bytes(),
-                    Objects.requireNonNull(Objects.requireNonNull(response.body()).contentType()).charset());
-        } else if (!HttpStatus.valueOf(code).is1xxInformational() && !HttpStatus.valueOf(code).is3xxRedirection()) {
-            throw new UnknownHttpStatusCodeException(code, "unknown status code error", response.headers(),
-                    Objects.requireNonNull(response.body()).bytes(),
-                    Objects.requireNonNull(Objects.requireNonNull(response.body()).contentType()).charset());
-        }
     }
 
     protected ExecutionContext createDefaultContext() {

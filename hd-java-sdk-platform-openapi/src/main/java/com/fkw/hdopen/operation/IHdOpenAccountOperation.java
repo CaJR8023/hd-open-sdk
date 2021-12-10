@@ -3,6 +3,7 @@ package com.fkw.hdopen.operation;
 import com.fkw.hdopen.model.HdAccountLoginVO;
 import com.fkw.hdopen.model.HdAccountRegisterVO;
 import com.fkw.hdopen.model.Result;
+import com.fkw.hdopen.model.request.CallHdOemAcctBindApiVO;
 import com.fkw.hdopen.model.request.CallHdOpenLoginApiVO;
 
 /**
@@ -40,4 +41,13 @@ public interface IHdOpenAccountOperation {
      * @author CAJR
      */
     Result<HdAccountLoginVO> login(CallHdOpenLoginApiVO vo);
+
+    /**
+     * 分销商注册客户账号绑定开放平台
+     *
+     * @param vo 调用参数
+     * @return com.fkw.hdopen.model.Result
+     * @author CAJR
+     */
+    Result<Integer> oemAcctBind(CallHdOemAcctBindApiVO vo);
 }

@@ -127,4 +127,7 @@ public class HdPlatformPartnerClient extends HdPartnerClient {
         return iOpenToolOperation.transformShortUrl(url);
     }
 
+    public Result<Integer> oemAcctBind(CallHdOemAcctBindApiVO vo) {
+        return iHdOpenAccountOperation.oemAcctBind(vo);
+    }
 }

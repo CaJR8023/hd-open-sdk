@@ -1,5 +1,6 @@
 package com.fkw.hdopen.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fkw.hdopen.comm.JsonUtils;
 
 import java.util.Date;
@@ -20,6 +21,7 @@ public class HdAccountRegisterVO {
 
     private String partnerId;
 
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date date;
 
     public Integer getAid() {

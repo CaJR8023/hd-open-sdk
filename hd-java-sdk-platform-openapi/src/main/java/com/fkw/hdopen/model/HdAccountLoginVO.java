@@ -1,5 +1,6 @@
 package com.fkw.hdopen.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fkw.hdopen.comm.JsonUtils;
 
@@ -25,6 +26,7 @@ public class HdAccountLoginVO {
     @JsonProperty("redirect_url")
     private String redirectUrl;
 
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date date;
 
     public Integer getAid() {

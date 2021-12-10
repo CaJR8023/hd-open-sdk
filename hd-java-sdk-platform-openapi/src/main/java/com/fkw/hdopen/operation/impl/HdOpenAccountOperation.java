@@ -9,6 +9,7 @@ import com.fkw.hdopen.comm.HttpRequestUtils;
 import com.fkw.hdopen.model.HdAccountLoginVO;
 import com.fkw.hdopen.model.HdAccountRegisterVO;
 import com.fkw.hdopen.model.Result;
+import com.fkw.hdopen.model.request.CallHdOemAcctBindApiVO;
 import com.fkw.hdopen.model.request.CallHdOpenLoginApiVO;
 import com.fkw.hdopen.operation.IHdOpenAccountOperation;
 import okhttp3.Request;
@@ -27,7 +28,6 @@ public class HdOpenAccountOperation extends Operation implements IHdOpenAccountO
     public HdOpenAccountOperation(URI endpoint, ServiceClient client, CredentialsProvider credentialsProvider) {
         super(endpoint, client, credentialsProvider);
     }
-
 
     @Override
     public Result<HdAccountRegisterVO> register(String partnerId) {
@@ -58,6 +58,15 @@ public class HdOpenAccountOperation extends Operation implements IHdOpenAccountO
         String method = ResourceUris.HD_OPEN_LOGIN.getMethod();
         Request request = HttpRequestUtils.buildRequest(uri, method, vo);
         return doOperation(request, new TypeReference<Result<HdAccountLoginVO>>() {
+        });
+    }
+
+    @Override
+    public Result<Integer> oemAcctBind(CallHdOemAcctBindApiVO vo) {
+        String uri = endpoint + ResourceUris.HD_OEM_BIND.getUri();
+        String method = ResourceUris.HD_OEM_BIND.getMethod();
+        Request request = HttpRequestUtils.buildRequest(uri, method, vo);
+        return doOperation(request, new TypeReference<Result<Integer>>() {
         });
     }
 }

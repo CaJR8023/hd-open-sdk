@@ -7,7 +7,7 @@
     <groupId>io.github.cajr8023</groupId>
     <artifactId>hd-open-sdk</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <description>FAISCO HD Open API SDK for Java</description>
     <url>https://github.com/CaJR8023/hd-open-sdk</url>
 
@@ -53,7 +53,7 @@
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
         <maven-javadoc-plugin.version>3.0.1</maven-javadoc-plugin.version>
         <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
-        <hd-java-sdk-core.version>1.0.3</hd-java-sdk-core.version>
+        <hd-java-sdk-core.version>1.0.4</hd-java-sdk-core.version>
         <jackson-databind.version>2.11.3</jackson-databind.version>
         <java.version>1.8</java.version>
         <junit.version>4.13</junit.version>
