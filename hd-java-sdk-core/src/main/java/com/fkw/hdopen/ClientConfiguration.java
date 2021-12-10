@@ -118,7 +118,7 @@ public class ClientConfiguration {
     protected boolean crcCheckEnabled;
 
     /**
-     * 代理端口
+     * token提前过期时间 (秒)
      */
     protected int tokenEarlyExpireTime;
 
