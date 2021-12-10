@@ -5,12 +5,12 @@
   <parent>
     <artifactId>hd-open-sdk</artifactId>
     <groupId>io.github.cajr8023</groupId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>hd-java-sdk-standard-openapi</artifactId>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
 
   <name>hd-java-sdk-standard-openapi</name>
   <packaging>jar</packaging>
