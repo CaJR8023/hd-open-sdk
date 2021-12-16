@@ -30,8 +30,7 @@ public abstract class ServiceClient {
      * @param request 请求
      * @param context 请求上下文
      * @return okhttp3.Response
-     * @throws IOException e
      * @author CAJR
      */
-    public abstract Response sendRequest(Request request, ExecutionContext context) throws IOException;
+    public abstract Response sendRequest(Request request, ExecutionContext context);
 }

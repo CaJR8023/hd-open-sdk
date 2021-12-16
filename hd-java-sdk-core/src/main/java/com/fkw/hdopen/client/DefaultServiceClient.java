@@ -5,6 +5,7 @@ import com.fkw.hdopen.ClientConfiguration;
 import com.fkw.hdopen.comm.ExecutionContext;
 import com.fkw.hdopen.comm.Header;
 import com.fkw.hdopen.comm.HttpStatus;
+import com.fkw.hdopen.exception.HdOpenRequestFailException;
 import com.fkw.hdopen.exception.HttpClientErrorException;
 import com.fkw.hdopen.exception.HttpServerErrorException;
 import com.fkw.hdopen.exception.UnknownHttpStatusCodeException;
@@ -45,21 +46,25 @@ public class DefaultServiceClient extends ServiceClient {
     }
 
     @Override
-    public Response sendRequest(Request request, ExecutionContext context) throws IOException {
+    public Response sendRequest(Request request, ExecutionContext context) {
+        Response response;
         context.init(configuration, okHttpClient);
         request = request.newBuilder()
                 .headers(Headers.of(Header.AUTHORIZATION.toString(), Header.BEARER.toString() + " " + context.getAccessToken()))
                 .build();
-        Response response = this.okHttpClient.newCall(request).execute();
         try {
+            response = this.okHttpClient.newCall(request).execute();
             checkIsSuccess(response);
-        } catch (HttpClientErrorException clientErrorException) {
-            //如果返回401,清空下token缓存,并初始化下token
-            if (clientErrorException.getStatusCode().value() == HttpStatus.UNAUTHORIZED.value()) {
-                context.clearTokenContext();
-                context.init(configuration, okHttpClient);
+        } catch (Exception exception) {
+            if (exception instanceof HttpClientErrorException) {
+                HttpClientErrorException clientErrorException = (HttpClientErrorException) exception;
+                //如果返回401,清空下token缓存,并初始化下token
+                if (clientErrorException.getStatusCode().value() == HttpStatus.UNAUTHORIZED.value()) {
+                    context.clearTokenContext();
+                    context.init(configuration, okHttpClient);
+                }
             }
-            throw clientErrorException;
+            throw new HdOpenRequestFailException("request hd open err;", exception);
         }
         return response;
     }

@@ -3,6 +3,7 @@ package com.fkw.hdopen.comm;
 import com.fkw.hdopen.ClientConfiguration;
 import com.fkw.hdopen.auth.Credentials;
 import com.fkw.hdopen.exception.InvalidCredentialsException;
+import com.fkw.hdopen.exception.RefreshTokenException;
 import okhttp3.*;
 
 import java.io.IOException;
@@ -56,11 +57,20 @@ public class ExecutionContext {
         try {
             Response response = client.newCall(request).execute();
             if (!response.isSuccessful()) {
-                throw new InvalidCredentialsException("Refresh oauth token fail response " + response);
+                //如果响应码是401，重新初始化一次token
+                if (HttpStatus.UNAUTHORIZED.value() == response.code()) {
+                    initTokenContext(configuration, client);
+                    return;
+                }
+                clearTokenContext();
+                throw new RefreshTokenException(String.format("Refresh oauth token fail response is [%s]", response));
             }
             ExecutionContext.context = JsonUtils.toBean(Objects.requireNonNull(response.body()).string(), TokenContext.class);
             ExecutionContext.context.setTokenExpireTime((ExecutionContext.context.getExpiresIn() - configuration.getTokenEarlyExpireTime()) * 1000 + System.currentTimeMillis());
         } catch (Exception e) {
+            if (e instanceof RefreshTokenException) {
+                throw (RefreshTokenException) e;
+            }
             e.printStackTrace();
             throw new InvalidCredentialsException("Refresh oauth token fail: " + e.getMessage());
         }
