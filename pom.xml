@@ -36,6 +36,7 @@
             <email>1206303099@qq.com</email>
         </developer>
     </developers>
+    
     <scm>
         <url>https://github.com/CaJR8023/hd-open-sdk/tree/master</url>
         <connection>scm:git:git://github.com/CaJR8023/hd-open-sdk.git</connection>
