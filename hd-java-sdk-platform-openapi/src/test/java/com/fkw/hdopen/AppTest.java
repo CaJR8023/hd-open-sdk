@@ -1,5 +1,6 @@
 package com.fkw.hdopen;
 
+import com.fkw.hdopen.comm.Protocol;
 import com.fkw.hdopen.comm.RSAUtils;
 import org.junit.Test;
 
@@ -23,5 +24,19 @@ public class AppTest {
         System.out.println(RSAUtils.verify(publicKey, encryptedData, sign));
         System.out.println(RSAUtils.decryptByPublicKey(publicKey, encryptedData));
 
+    }
+
+    @Test
+    public void testHls(){
+        /*String clientId = "fk-hd-open-client-625";
+        String clientSecret = "a4f87fafa9a6471e85963544f2822e22";
+        ClientConfiguration configuration = new ClientConfiguration();
+        configuration.setClientAuthCname("openauth-hd.fff.com");
+        configuration.setHdResourceCname("open-hd.fff.com");
+        configuration.setProtocol(Protocol.HTTP);
+        HdPlatformPartnerClient partner = new HdPlatformPartnerClientBuilder()
+                .build(clientId, clientSecret, configuration);
+
+        System.out.println(partner.getHdOrderInfoList(9895915, 25, 1, 20));*/
     }
 }

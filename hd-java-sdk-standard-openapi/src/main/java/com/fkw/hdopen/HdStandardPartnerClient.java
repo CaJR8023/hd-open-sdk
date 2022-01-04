@@ -22,6 +22,7 @@ public class HdStandardPartnerClient extends HdPartnerClient {
     private IHdOpenActivitySpreadStatOperation hdOpenActivitySpreadStatOperation;
     private IHdOpenConsumeRecordOperation hdOpenConsumeRecordOperation;
     private IOpenToolOperation iOpenToolOperation;
+    private IHdOpenOrderOperation iHdOpenOrderOperation;
 
     public HdStandardPartnerClient(CredentialsProvider credentialsProvider, ClientConfiguration configuration) {
         super(credentialsProvider, configuration);
@@ -35,6 +36,7 @@ public class HdStandardPartnerClient extends HdPartnerClient {
         this.hdOpenActivitySpreadStatOperation = new HdOpenActivitySpreadStatOperation(getEndpoint(), serviceClient, credentialsProvider);
         this.hdOpenConsumeRecordOperation = new HdOpenConsumeRecordOperation(getEndpoint(), serviceClient, credentialsProvider);
         this.iOpenToolOperation = new OpenToolOperation(getEndpoint(), serviceClient, credentialsProvider);
+        this.iHdOpenOrderOperation = new HdOpenOrderOperation(getEndpoint(), serviceClient, credentialsProvider);
     }
 
     public Result<HdOpenActivityVO> getOneHdActivityInfo(int aid, int activityId) {
@@ -111,5 +113,14 @@ public class HdStandardPartnerClient extends HdPartnerClient {
 
     public Result<String> transformShortUrl(String url) {
         return iOpenToolOperation.transformShortUrl(url);
+    }
+
+    /**
+     * 获取订单列表
+     * @Author HLS 2021/12/24 16:20
+     * @Update HLS 2021/12/24 16:20
+     */
+    public PageResult<HdOpenOrderVO> getHdOrderInfoList(int aid, int activityId, Integer pageNo, Integer pageSize) {
+        return iHdOpenOrderOperation.getHdOrderInfoList(aid, activityId, pageNo, pageSize);
     }
 }

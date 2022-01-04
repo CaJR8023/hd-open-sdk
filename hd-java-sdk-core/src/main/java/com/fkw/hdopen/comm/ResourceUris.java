@@ -29,6 +29,9 @@ public enum ResourceUris {
     GET_PUBLIC_KEY("/security/public-key", "GET"),
     CHANGE_TO_LONG_URL("/tool/long-url", "GET"),
     CHANGE_TO_SHORT_URL("/tool/short-url", "GET"),
+
+    /* 订单相关接口 */
+    GET_ORDER_LIST("/order/list-page", "GET"),
     ;
     private final String uri;
     private final String method;

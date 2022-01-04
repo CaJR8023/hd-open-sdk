@@ -23,6 +23,7 @@ public class HdPlatformPartnerClient extends HdPartnerClient {
     private IHdOpenActivitySpreadStatOperation iHdOpenActivitySpreadStatOperation;
     private IHdOpenConsumeRecordOperation iHdOpenConsumeRecordOperation;
     private IOpenToolOperation iOpenToolOperation;
+    private IHdOpenOrderOperation iHdOpenOrderOperation;
 
     public HdPlatformPartnerClient(CredentialsProvider credentialsProvider, ClientConfiguration configuration) {
         super(credentialsProvider, configuration);
@@ -37,6 +38,7 @@ public class HdPlatformPartnerClient extends HdPartnerClient {
         this.iHdOpenActivitySpreadStatOperation = new HdOpenActivitySpreadStatOperation(getEndpoint(), serviceClient, credentialsProvider);
         this.iHdOpenConsumeRecordOperation = new HdOpenConsumeRecordOperation(getEndpoint(), serviceClient, credentialsProvider);
         this.iOpenToolOperation = new OpenToolOperation(getEndpoint(), serviceClient, credentialsProvider);
+        this.iHdOpenOrderOperation = new HdOpenOrderOperation(getEndpoint(), serviceClient, credentialsProvider);
     }
 
     public Result<HdOpenActivityVO> getOneHdActivityInfo(int aid, int activityId) {
@@ -129,5 +131,14 @@ public class HdPlatformPartnerClient extends HdPartnerClient {
 
     public Result<Integer> oemAcctBind(CallHdOemAcctBindApiVO vo) {
         return iHdOpenAccountOperation.oemAcctBind(vo);
+    }
+
+    /**
+     * 获取订单列表
+     * @Author HLS 2021/12/24 16:20
+     * @Update HLS 2021/12/24 16:20
+     */
+    public PageResult<HdOpenOrderVO> getHdOrderInfoList(int aid, int activityId, Integer pageNo, Integer pageSize) {
+        return iHdOpenOrderOperation.getHdOrderInfoList(aid, activityId, pageNo, pageSize);
     }
 }
