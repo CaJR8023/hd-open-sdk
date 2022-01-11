@@ -31,6 +31,9 @@ public class HttpRequestUtils {
         if (HttpMethod.GET.matches(method)) {
             return reqBuild.get().build();
         }
+        if (HttpMethod.POST.matches(method) || HttpMethod.PUT.matches(method)) {
+            return buildPostJsonRequest(uri, params);
+        }
         return reqBuild.method(method, new FormBody.Builder().build()).build();
     }
 
