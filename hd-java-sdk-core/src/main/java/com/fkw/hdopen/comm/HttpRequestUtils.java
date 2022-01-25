@@ -15,7 +15,15 @@ import java.util.Objects;
 public class HttpRequestUtils {
 
     public static Request buildRequest(String uri, String method, Object obj) {
-        return buildRequest(uri, method, JsonUtils.toMap(obj, String.class, String.class));
+        if (HttpMethod.GET.matches(method)) {
+            return buildRequest(uri, method, JsonUtils.toMap(obj, String.class, String.class));
+        }
+        //非GET from-data请求
+        if (obj instanceof Map) {
+            return buildRequest(uri, method, JsonUtils.toMap(obj, String.class, String.class));
+        }
+        //非GET  application/json 请求
+        return buildPostJsonRequest(uri, obj);
     }
 
     public static Request buildRequest(String uri, String method, Map<String, String> params) {
