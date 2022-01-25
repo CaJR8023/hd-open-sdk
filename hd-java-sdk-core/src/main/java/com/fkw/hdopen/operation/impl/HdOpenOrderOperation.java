@@ -14,7 +14,12 @@ import okhttp3.Request;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
-
+/**
+ * 互动订单开放业务实现类
+ *
+ * @author HLS 2021/12/24 15:48
+ * @version 1.0.8
+ */
 public class HdOpenOrderOperation extends Operation implements IHdOpenOrderOperation {
 
     public HdOpenOrderOperation(URI endpoint, ServiceClient client, CredentialsProvider credentialsProvider) {
