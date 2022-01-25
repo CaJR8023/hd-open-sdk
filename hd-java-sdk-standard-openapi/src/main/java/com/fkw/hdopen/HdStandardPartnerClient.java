@@ -115,11 +115,6 @@ public class HdStandardPartnerClient extends HdPartnerClient {
         return iOpenToolOperation.transformShortUrl(url);
     }
 
-    /**
-     * 获取订单列表
-     * @Author HLS 2021/12/24 16:20
-     * @Update HLS 2021/12/24 16:20
-     */
     public PageResult<HdOpenOrderVO> getHdOrderInfoList(int aid, int activityId, Integer pageNo, Integer pageSize) {
         return iHdOpenOrderOperation.getHdOrderInfoList(aid, activityId, pageNo, pageSize);
     }
